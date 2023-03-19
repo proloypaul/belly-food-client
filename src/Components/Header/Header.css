@@ -1,0 +1,16 @@
+.headerContainer .navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 50px;
+}
+
+.headerContainer .navbarOption ul {
+    list-style: none;
+    display: flex;
+    
+}
+.navbarOption ul li a{
+    text-decoration: none;
+    margin-left: 10px;
+}

@@ -1,3 +1,11 @@
+.commonButton{
+  background-color: rgba(255, 0, 0, 0.488);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 5px 20px;
+  border-radius: 15px;
+}
 .App {
   text-align: center;
 }
