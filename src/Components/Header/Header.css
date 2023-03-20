@@ -5,14 +5,19 @@
     margin: 0px 50px;
 }
 
+.navbar .navbarLogo img{
+    width: 100px;
+    height: 30px;
+}
 .headerContainer .navbarOption ul {
     list-style: none;
     display: flex;
-    
 }
+
 .navbarOption ul li a{
     text-decoration: none;
     margin-left: 10px;
+    color: #000;
 }
 .bannerContainer{
     width: 100%;
@@ -31,6 +36,10 @@
 .bannerContainer .bannerTitle{
     text-align: center;
 }
+.bannerTitle h1{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 30px;
+}
 .bannerTitle .bannerSearch input{
     padding: 5px 10px;
     border:0;
@@ -38,4 +47,26 @@
     border-bottom-left-radius: 15px;
     width: 50%;
     margin-right: -30px;
+}
+
+@media screen and (max-width: 760px) and (min-width: 300px){
+    .headerContainer{
+        width: 100%;
+        /* background-color: aquamarine; */
+    }
+    .headerContainer .navbar{
+        margin: 0px 10px;
+
+    }
+    .bannerContainer{
+        width: 100%;
+        background-repeat: no-repeat;
+        /* height: 400px; */
+        background-size: cover;
+        background-position: center;
+    }
+    .bannerContainer .bannerTitle h1{
+        font-size: 20px;
+    }
+
 }
