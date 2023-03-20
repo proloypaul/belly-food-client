@@ -1,0 +1,41 @@
+.footerContainer{
+    background-color: #000000;
+    padding: 0px 50px;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    color: #fff;
+}
+.footerContainer .footer1Part{
+    display: grid;
+    grid-template-columns: 6fr 3fr 3fr;
+}
+.footer1Part a{
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    padding-bottom: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.footerContainer .footer2Part{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+
+}
+.footer2Part a{
+    display: block;
+    text-decoration: none;
+    color: gray;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.footer2Part .part2Option{
+    display: flex;
+}
+.footer2Part .part2Option a{
+    display: block;
+    text-decoration: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 30px;
+    
+}
