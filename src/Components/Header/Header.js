@@ -18,8 +18,14 @@ const Header = () => {
                 </div>
             </nav>
             {/* banner section              */}
-            <div>
-                <h1>Banner section</h1>
+            <div className='bannerContainer'>
+                <div className='bannerTitle'>
+                    <h1>Best food waiting for your belly</h1>
+                    <div className='bannerSearch'>
+                        <input placeholder='Search food items...'/>
+                        <button className='commonButton'>Search</button>
+                    </div>
+                </div>
             </div>
         </div>
     );
