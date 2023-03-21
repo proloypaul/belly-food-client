@@ -1,4 +1,5 @@
 import React from 'react';
+import Breakfast from '../Foods/Breakfast/Breakfast';
 import Foods from '../Foods/Foods';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -8,7 +9,7 @@ const Home = () => {
         <div>
             <Header></Header>
             <Foods></Foods>
-            <Footer></Footer>
+            <Breakfast></Breakfast>
         </div>
     );
 };

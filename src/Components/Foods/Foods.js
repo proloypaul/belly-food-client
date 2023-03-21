@@ -11,7 +11,6 @@ const Foods = () => {
                 <NavLink to="/dinner">Dinner</NavLink>
             </nav>
             <Outlet/>
-            <h1>Foods section</h1>
         </div>
     );
 };

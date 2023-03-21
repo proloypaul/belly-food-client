@@ -3,6 +3,7 @@ import './App.css';
 import Breakfast from './Components/Foods/Breakfast/Breakfast';
 import Dinner from './Components/Foods/Dinner/Dinner';
 import Lunch from './Components/Foods/Lunch/Lunch';
+import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import SignIn from './Components/Registation/SignIn/SignIn';
 import SignUp from './Components/Registation/SignUp/SignUp';
@@ -21,6 +22,7 @@ function App() {
             <Route path='dinner' element={<Dinner/>}/>
           </Route>
         </Routes>
+        <Footer></Footer>
       </BrowserRouter>
       {/* <Home></Home> */}
     </div>
