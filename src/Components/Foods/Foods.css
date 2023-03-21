@@ -1,0 +1,12 @@
+.foodsContainer{
+    margin: 40px 0px;
+}
+.foodsnavbar{
+    display: flex;
+    justify-content: center;
+}
+.foodsnavbar a{
+    text-decoration: none;
+    margin-left: 10px;
+    color: #000000;
+}
