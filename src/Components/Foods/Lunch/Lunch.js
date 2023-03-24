@@ -6,7 +6,7 @@ const Lunch = () => {
     return (
         <div className='breakfastContainer'>
             <div className="breakfastFoods">
-                {foodsData.slice(7, 12).map(food => <div key={food._id} className="allFoods">
+                {foodsData.slice(7, 13).map(food => <div key={food._id} className="allFoods">
                     <div className='foods'>
                         <img src={food.imgOne} alt="Empty!" width="150px" height="150px"/>
                         <p className='foodName'>{food.name}</p>
