@@ -15,9 +15,8 @@
     /* transition: all; */
 }
 .foodsnavbar a:hover{
-    color: red;
-    border-bottom: 2px solid red;
+    color: crimson;
+    border-bottom: 2px solid crimson;
     padding-bottom: 5px;
-    transition: color 0.7s ease-in-out 0.1s ;
-    
+    transition: all 0.5s ease-in-out 0.1s ;   
 }

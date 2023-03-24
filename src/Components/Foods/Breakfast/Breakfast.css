@@ -1,3 +1,47 @@
 .breakfastContainer{
     margin: 40px 50px;
 }
+.breakfastContainer .breakfastFoods{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+}
+.breakfastFoods .allFoods{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.allFoods .foods{
+    text-align: center;
+    
+}
+.allFoods .foods:hover{
+    background-color: #ffffff;
+    padding: 5px 10px;
+    box-shadow: 5px 3px 4px 3px lightgray;
+    border: 0;
+    border-radius: 10px;
+    transition: all 0.4s ease-in-out 0.1s;
+}
+.allFoods .foods .foodName{
+    font-size: 16px;
+    font-weight: 500;
+}
+.allFoods .foods .foodMsg{
+    color: gray;
+    font-size: 16px;
+    font-weight: 400;
+}
+.checkoutFood{
+    text-align: center;
+}
+.checkoutFoodBtn{
+    padding: 10px 30px;
+    color: #ffffff;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #0000003f;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
