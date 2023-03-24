@@ -5,6 +5,9 @@
     display: grid;
     grid-template-columns: 4fr 4fr 4fr;
 }
+.breakfastFoods a{
+    text-decoration: none;
+}
 .breakfastFoods .allFoods{
     display: flex;
     align-items: center;
@@ -27,11 +30,15 @@
 .allFoods .foods .foodName{
     font-size: 16px;
     font-weight: 500;
+    color: #000;
 }
 .allFoods .foods .foodMsg{
     color: gray;
     font-size: 16px;
     font-weight: 400;
+}
+.allFoods .foods .foodPrice{
+    color: #000000;
 }
 .checkoutFood{
     text-align: center;
