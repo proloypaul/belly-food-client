@@ -5,7 +5,7 @@ import './Breakfast.css';
 const Breakfast = () => {
     const {foodsData} = CommonCode();
     
-    console.log("foods data", foodsData);
+    // console.log("foods data", foodsData);
     return (
         <div className='breakfastContainer'>
             <div className="breakfastFoods">
