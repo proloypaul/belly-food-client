@@ -47,7 +47,27 @@
 .foodDetail button{
     margin: 20px 0px;
 }
+.addToCartBtn{
+    background-color: crimson;
+    color: #fff;
+    padding: 10px 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.addToCartBtn:hover{
+    color: crimson;
+    background-color: #000;
+    transition: all 0.5s ease-in-out 0.1s;
+}
 .foodDetail .relatedImg{
+    background-color: #f4e9e9;
+    padding-left: 20px;
+    border: 0;
+    border-radius: 5px;
     margin: 20px 0px;
     display: flex;
     justify-content: space-between;
@@ -56,8 +76,13 @@
 }
 .foodDetailsContainer .relatedImg .rightIcon{
     font-size: 40px;
-    color: gray;
+    font-weight: 900;
+    color: crimson;
     cursor: pointer;
+}
+.relatedImg .rightIcon:hover{
+    color: #000;
+    transition: all 0.5s ease-in-out 0.1s;
 }
 .foodDetailsContainer .detailImg{
     /* text-align: right; */

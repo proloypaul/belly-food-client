@@ -49,7 +49,7 @@ const FoodDetails = () => {
                         <button className='quantiteMinBtn' onClick={handleDecrementBtn}>-</button>
                     </div>
                 </div>
-                <button className='commonButton'><BsCartDash/> Add</button>
+                <button className='addToCartBtn'><BsCartDash/> Add</button>
                 {/* all related img */}
                 <div className='relatedImg'>
                     <div>
