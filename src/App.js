@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import AllFood from './Components/Foods/AllFood/AllFood';
 import Breakfast from './Components/Foods/Breakfast/Breakfast';
 import Dinner from './Components/Foods/Dinner/Dinner';
 import FoodDetails from './Components/Foods/FoodDetails/FoodDetails';
@@ -18,6 +19,7 @@ function App() {
           <Route path='/signIn' element={<SignIn/>}/>
           <Route path='/signUp' element={<SignUp/>}/>
           <Route path='/foodDetails/:id' element={<FoodDetails/>}/>
+          <Route path='/allFood' element={<AllFood/>}/>
           <Route path='/' element={<Home/>}>
             <Route path='breakfast' element={<Breakfast/>}/>
             <Route path='lunch' element={<Lunch/>}/>

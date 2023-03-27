@@ -19,7 +19,7 @@ const Breakfast = () => {
                 </Link>)}
             </div>
             <div className='checkoutFood'>
-                <button className='checkoutFoodBtn'>Checkout Your Food</button>
+                <Link to="/allFood"><button className='checkoutFoodBtn'>Checkout Your Food</button></Link>
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import {BsCartDash} from 'react-icons/bs';
 import {AiOutlineRight} from 'react-icons/ai';
 import './FoodDetains.css';
@@ -53,10 +53,10 @@ const FoodDetails = () => {
                 {/* all related img */}
                 <div className='relatedImg'>
                     <div>
-                        <img src={foodDetailsData.imgTwo} alt="Empty!"  width="100px" height="100px"/>
-                        <img src={foodDetailsData.imgThree} alt="Empty!" width="100px" height="100px"/>
+                        <Link to="/allFood"><img src={foodDetailsData.imgTwo} alt="Empty!"  width="100px" height="100px"/></Link>
+                        <Link to="/allFood"><img src={foodDetailsData.imgThree} alt="Empty!" width="100px" height="100px"/></Link>
                     </div>
-                    <p className='rightIcon'><AiOutlineRight/></p>
+                    <Link to="/allFood"><p className='rightIcon'><AiOutlineRight/></p></Link>
                 </div>
             </div>
             <div className='detailImg'>
