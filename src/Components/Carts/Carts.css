@@ -1,0 +1,60 @@
+.cartsContainer{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+    margin: 80px 0px;
+}
+.cartsContainer .editDelivery{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+}
+.editDelivery .editDeliveryTitle{
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editDeliveryTitle .title{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 0px;
+    border-bottom: 2px solid gray;
+    width: 69%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.cartsContainer .editDelivery input{
+    width: 65%;
+    padding: 10px;
+    margin: 5px 0px;
+    background-color: rgb(239, 235, 235);
+    border: 0;
+    border-radius: 5px;
+}
+.cartsContainer .editDelivery button{
+    width: 69%;
+    background-color: crimson;
+    color: #fff;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* allcarts csss */
+.cartsContainer .allCarts{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.allcarts .carts{
+    width: 65%;
+}
+.allCarts .cartAmount{
+    display: grid;
+    grid-template-columns: 6fr 6fr;
+}

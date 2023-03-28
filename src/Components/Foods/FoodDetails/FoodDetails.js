@@ -49,12 +49,13 @@ const FoodDetails = () => {
                         <button className='quantiteMinBtn' onClick={handleDecrementBtn}>-</button>
                     </div>
                 </div>
-                <button className='addToCartBtn'><BsCartDash/> Add</button>
+                <Link to="/carts"><button className='addToCartBtn'><BsCartDash/> Add</button></Link>
                 {/* all related img */}
                 <div className='relatedImg'>
                     <div>
                         <Link to="/allFood"><img src={foodDetailsData.imgTwo} alt="Empty!"  width="100px" height="100px"/></Link>
                         <Link to="/allFood"><img src={foodDetailsData.imgThree} alt="Empty!" width="100px" height="100px"/></Link>
+                        <Link to="/allFood"><img src={foodDetailsData.imgFour} alt="Empty!" width="100px" height="100px"/></Link>
                     </div>
                     <Link to="/allFood"><p className='rightIcon'><AiOutlineRight/></p></Link>
                 </div>
