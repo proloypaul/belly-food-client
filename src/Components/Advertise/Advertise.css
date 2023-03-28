@@ -1,0 +1,73 @@
+.advertiseContainer{
+    margin: 80px 40px;
+}
+.advertiseContainer .advertiseTitle{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.advertiseContainer .advertiseMsg{
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: gray;
+    width: 50%;
+    margin: 40px 0px;
+}
+.advertiseContainer .advertiseBoxes{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+}
+.advertiseBoxes .advertiseBox{
+    width: 300px;
+    padding-bottom: 20px;
+}
+.advertiseBoxes .advertiseBox:hover{
+    background-color: #ffffff;
+    box-shadow: 5px 3px 4px 3px lightgray;
+    border: 0;
+    border-radius: 10px;
+    transition: all 0.4s ease-in-out 0.1s;
+}
+.advertiseBoxes .logoAndTitle{
+    display: flex;
+    padding: 10px;
+}
+.advertiseBoxes .logoAndTitle .advertiseLogo{
+    background-color: crimson;
+    color: #fff;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 900;
+    padding: 10px;
+    border: 0;
+    border-radius: 50px;
+    height: 50%;
+    width: 30%;
+    text-align: center;
+}
+.advertiseBoxes .advertiseName{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.advertiseBoxes .advertiseDescription{
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: gray;
+}
+.advertiseBoxes .advertiseSeeMore{
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 600px;
+    color: rgba(0, 0, 255, 0.551);
+}
+.advertiseBoxes .advertiseSeeMore .seeMoreIcon{
+    padding: 5px 8px;
+    font-size: 16px;
+    background-color: rgba(8, 200, 8, 0.558);
+    color: #fff;
+    border: 0;
+    border-radius: 50px;
+}

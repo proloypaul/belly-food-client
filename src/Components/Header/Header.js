@@ -12,7 +12,7 @@ const Header = () => {
                 </div>
                 <div className='navbarOption'>
                     <ul>
-                        <li><Link to="/cart"><BsCartDash/></Link></li>
+                        <li><Link to="/carts"><BsCartDash/></Link></li>
                         <li><Link to="/signIn" className='commonButton'>SignIn</Link></li>
                         <li><Link to="/signUp">SingUp</Link></li>
                     </ul>
