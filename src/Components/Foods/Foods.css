@@ -20,3 +20,10 @@
     padding-bottom: 5px;
     transition: all 0.5s ease-in-out 0.1s ;   
 }
+
+/* active css */
+.active{
+    color: crimson;
+    border-bottom: 2px solid crimson;
+    padding-bottom: 5px;
+}
