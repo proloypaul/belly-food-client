@@ -6,9 +6,9 @@ const Foods = () => {
     return (
         <div className='foodsContainer'>
             <nav className='foodsnavbar'>
-                <NavLink to="/breakfast" activeClassName="active">Breakfast</NavLink>
-                <NavLink to="/lunch" activeClassName="active">Lunch</NavLink>
-                <NavLink to="/dinner" activeClassName="active">Dinner</NavLink>
+                <NavLink to="/breakfast" activeclassName="active">Breakfast</NavLink>
+                <NavLink to="/lunch" activeclassName="active">Lunch</NavLink>
+                <NavLink to="/dinner" activeclassName="active">Dinner</NavLink>
             </nav>
             <Outlet/>
         </div>

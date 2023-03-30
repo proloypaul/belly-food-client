@@ -8,23 +8,30 @@ const FoodDetails = () => {
     // console.log("food id", id);
     const {id} = useParams();
     const [foodDetailsData, setFoodDetailsData] = useState({});
-    // const [price, setPrice] = useState();
-    let totalPrice = 0;
-    let increment = 0;
+    let [price, setPrice] = useState(0);
+    let [foodNumber, setFoodNumber] = useState(0);
+    
     // console.log("price of food", price);
-    const handleIncrementBtn = (event) => {
-        event.preventDefault();
-        let initialPrice = foodDetailsData.price;
-        totalPrice = initialPrice + totalPrice;
-        increment = increment + 1;
-        // setPrice(totalPrice);
-        // console.log(initialPrice);
-        console.log("increment", increment);    
+    // console.log("foodNumber of food", foodNumber);
+    // handle increment food button
+    const handleIncrementBtn = () => {
+        const initialPrice = foodDetailsData.price;
+        if(0<=price && 0<=foodNumber ){
+            price = price + initialPrice;
+            setPrice(price);
+            foodNumber = foodNumber + 1;
+            setFoodNumber(foodNumber);
+        }
     }
-    
-    
+    // handle decrement food button
     const handleDecrementBtn = () => {
-        console.log("Decrement")
+        const initialPriceTwo = foodDetailsData.price;
+        if(0<price && 0<foodNumber){
+            price = price - initialPriceTwo;
+            setPrice(price);
+            foodNumber = foodNumber - 1;
+            setFoodNumber(foodNumber);
+        }
     }
     useEffect(() => {
         const url = `http://localhost:3600/foods/${id}`;
@@ -42,10 +49,10 @@ const FoodDetails = () => {
                 <p className='detailName'>{foodDetailsData.name}</p>
                 <p className='detailDescription'>{foodDetailsData.description}</p>
                 <div className='quantite'>
-                    <h3 className='detailPrice'>$ {foodDetailsData.price}</h3>
+                    <h3 className='detailPrice'>$ {price?price:foodDetailsData.price}</h3>
                     <div className='quantiteBtn'>
-                        <button className='quantiteMaxBtn' onClick={handleIncrementBtn}>+</button>
-                        <h4 className='quantiteNumber'>1</h4>
+                        <button className='quantiteMaxBtn' onClick={() => handleIncrementBtn()}><abbr title='Click again'>+</abbr></button>
+                        <h4 className='quantiteNumber'>{foodNumber? foodNumber: 1}</h4>
                         <button className='quantiteMinBtn' onClick={handleDecrementBtn}>-</button>
                     </div>
                 </div>
