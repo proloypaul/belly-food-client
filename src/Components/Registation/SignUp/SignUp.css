@@ -1,0 +1,50 @@
+.signUpContainer{
+    margin: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signUpContainer .fileUpload{
+    cursor: pointer;
+}
+.signUpContainer .fileUpload input[type="file"]{
+    display: none;
+}
+.fileUpload span{
+    font-size: 80px;
+}
+.signUpContainer .commonInput{
+    width: 94%;
+    margin: 5px 0px;
+    padding: 7px 5px;
+    background-color: rgba(220, 20, 60, 0.586);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+}
+.signUpContainer .fullName{
+    margin: 5px 0px;
+    /* display: flex; */
+}
+.signUpContainer .name{
+    width: 45%;
+    padding: 7px 5px;
+    background-color: rgba(220, 20, 60, 0.586);
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.signUpContainer .gender{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.signUpContainer .genderInput{
+    color: rgba(220, 20, 60, 0.586);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.signUpContainer .formBtn{
+    margin-top: 10px;
+    text-align: right;
+}
