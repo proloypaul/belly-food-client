@@ -9,11 +9,11 @@ const SignUp = () => {
     const [imgUpload, setImgUpload] = useState(false);
     // const [imgLink, setImgLink] = useState('');
     const [userRegisterData, setUserRegisterData] = useState(defaultRegisterData);
-    const {signInUsingGoogle, user, error} = Usefirebase();
+    const {signInUsingGoogle, registerUsingEmailAndPassword, user, error} = Usefirebase();
 
-    console.log(user?.email)
-    console.log(user?.photo_URL)
-    console.log(error);  
+    // console.log(user?.email)
+    // console.log(user?.photo_URL)
+    // console.log(error);  
 
     // handle user img 
     const handleImg = async (e) => {
@@ -41,13 +41,21 @@ const SignUp = () => {
     }
     // handle user register data
     const handleRegisterData = (e) => {
-        e.preventDefault();
-        console.log(userRegisterData);
+        e.preventDefault()
+        // console.log(userRegisterData);
+        if(userRegisterData.password === userRegisterData.retypePassword){
+            registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName);
+            alert("Registered successfully!");
+            e.target.reset();
+        }else{
+            alert("Please type same password in retype field");
+        }
+        
     }
 
     return (
         <div className='signUpContainer'>
-            <form onClick={() => handleRegisterData()}>
+            <form onSubmit={handleRegisterData}>
                 <label className="fileUpload">
                     <input  type='file' name='image'  onChange={handleImg}/>
                     <span><BsCameraFill/></span>

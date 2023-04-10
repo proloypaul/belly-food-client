@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import "./Header.css";
 import {BsCartDash} from 'react-icons/bs'; 
 import navLogo from "../../Images/logo.png";
+import Usefirebase from '../../Hooks/Usefirebase';
 const Header = () => {
+    const {user, signOutProcess} = Usefirebase()
     return (
         <div className='headerContainer'>
             <nav className='navbar'>
@@ -13,8 +15,10 @@ const Header = () => {
                 <div className='navbarOption'>
                     <ul>
                         <li><Link to="/carts"><BsCartDash/></Link></li>
-                        <li><Link to="/signIn" className='commonButton'>SignIn</Link></li>
-                        <li><Link to="/signUp">SingUp</Link></li>
+                        {user?.email?<li><Link to="/signIn" className='commonButton' onClick={signOutProcess}>SignOut</Link></li>:
+                        <li><Link to="/signUp">SingUp</Link></li>}
+                        {user?.email? "": <li><Link to="/signIn" className='commonButton'>SignIn</Link></li>}
+                        
                     </ul>
                 </div>
             </nav>
