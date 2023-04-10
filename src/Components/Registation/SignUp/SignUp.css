@@ -45,6 +45,16 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .signUpContainer .formBtn{
-    margin-top: 10px;
+    margin: 10px 0px;
     text-align: right;
+}
+.signInWithGoogleBtn{
+    background-color: rgba(220, 20, 60, 0.586);
+    font-size: 40px;
+    /* padding: 2px 5px; */
+    border: 0;
+    border-radius: 5px;
+    width: 96%;
+    cursor: pointer;
+    margin-top: 20px;
 }
