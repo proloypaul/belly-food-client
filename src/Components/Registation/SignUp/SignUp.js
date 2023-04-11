@@ -3,17 +3,17 @@ import {BsCameraFill} from 'react-icons/bs';
 import {FcGoogle} from 'react-icons/fc';
 import './SignUp.css';
 import Usefirebase from '../../../Hooks/Usefirebase';
+import { useLocation, useNavigate } from 'react-router-dom';
 const SignUp = () => {
     
     const defaultRegisterData = {date: new Date().toLocaleDateString()}
     const [imgUpload, setImgUpload] = useState(false);
     // const [imgLink, setImgLink] = useState('');
     const [userRegisterData, setUserRegisterData] = useState(defaultRegisterData);
-    const {signInUsingGoogle, registerUsingEmailAndPassword, user, error} = Usefirebase();
+    const navigation = useNavigate();
+    const location = useLocation();
+    const {signInUsingGoogle, registerUsingEmailAndPassword, error} = Usefirebase();
 
-    // console.log(user?.email)
-    // console.log(user?.photo_URL)
-    // console.log(error);  
 
     // handle user img 
     const handleImg = async (e) => {
@@ -26,7 +26,7 @@ const SignUp = () => {
             body: imgData,
         })
         const data = await res.json();
-        console.log(data.data.url_viewer);
+        // console.log(data.data.url_viewer);
         setUserRegisterData({image: data.data.url_viewer});
         // setImgLink(data.data.url_viewer);
         setImgUpload(true);
@@ -44,7 +44,7 @@ const SignUp = () => {
         e.preventDefault()
         // console.log(userRegisterData);
         if(userRegisterData.password === userRegisterData.retypePassword){
-            registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName);
+            registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName, navigation);
             alert("Registered successfully!");
             e.target.reset();
         }else{
@@ -60,7 +60,7 @@ const SignUp = () => {
                     <input  type='file' name='image'  onChange={handleImg}/>
                     <span><BsCameraFill/></span>
                     {/* {imgUpload? <img src={imgLink} alt='Empty!' width="200px" height="200px"/>:<span><BsCameraFill/></span>} */}
-                    <p>{imgUpload? "Relax Your image Uploaded": ""} </p>
+                    <p className='successMsg'>{imgUpload? "Relax Your Image Uploaded": ""} </p>
                 </label>
                 
                 <div className='fullName'>
@@ -78,8 +78,9 @@ const SignUp = () => {
                 <div className='formBtn'>
                     <button type='submit' className='commonButton'>Process</button>
                 </div>
+                <p className='errorMsg'>{error}</p>
                 <div>
-                    <button className='signInWithGoogleBtn' onClick={() => signInUsingGoogle()}><FcGoogle/></button>
+                    <button className='signInWithGoogleBtn' onClick={() => signInUsingGoogle(navigation, location)}><FcGoogle/></button>
                 </div>
             </form>
         </div>

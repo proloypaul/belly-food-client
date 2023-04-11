@@ -1,18 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignIn.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Usefirebase from '../../../Hooks/Usefirebase';
 
 
 const SignIn = () => {
+    const {loginWithEmailAndPassword,error} = Usefirebase();
+    const [signInData, setSignInData] = useState({});
+    const navigation = useNavigate();
+    const location = useLocation();
+    
+    const collectSignInData = (e) =>{
+        const field = e.target.name;
+        const value = e.target.value;
+        const allSignInData = {...signInData};
+        allSignInData[field] = value;
+        setSignInData(allSignInData);
+    }
+    const handleSignInData = e => {
+        e.preventDefault();
+        loginWithEmailAndPassword(signInData.email, signInData.password, navigation, location);
+        // console.log(signInData);
+    }
     return (
         <div className='signUpContainer'>
-            
-            <form>
-                <input className='commonInput' type='email' placeholder='abcd@gmail.com'/>
-                <input className='commonInput' type='password' placeholder='Enter password'/>
-                <button className='commonButton'>Sign In</button>
-            </form>
-            <p>Haven't Register Yet <Link to="/signUp">Register fast</Link></p>
+            <div>
+                <form onSubmit={handleSignInData}>
+                    <input className='commonInput' type='email' name='email' placeholder='abcd@gmail.com' onBlur={collectSignInData}/>
+                    <input className='commonInput' type='password' name='password' placeholder='Enter password' onBlur={collectSignInData}/>
+                    <div className='formBtn'>
+                        <button className='commonButton' type="submit">Sign In</button>
+                    </div>
+                    <p className='errorMsg'>{error}</p>
+                    <p className='signInMsg'>Haven't Register Yet <Link to="/signUp">Register fast</Link></p>
+                </form>
+            </div>
         </div>
     );
 };

@@ -13,6 +13,9 @@
 .fileUpload span{
     font-size: 80px;
 }
+.fileUpload .successMsg{
+    color: green;
+}
 .signUpContainer .commonInput{
     width: 94%;
     margin: 5px 0px;
@@ -47,6 +50,9 @@
 .signUpContainer .formBtn{
     margin: 10px 0px;
     text-align: right;
+}
+.signUpContainer .errorMsg{
+    color: red;
 }
 .signInWithGoogleBtn{
     background-color: rgba(220, 20, 60, 0.586);

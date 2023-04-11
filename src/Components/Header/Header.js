@@ -18,6 +18,7 @@ const Header = () => {
                         {user?.email?<li><Link to="/signIn" className='commonButton' onClick={signOutProcess}>SignOut</Link></li>:
                         <li><Link to="/signUp">SingUp</Link></li>}
                         {user?.email? "": <li><Link to="/signIn" className='commonButton'>SignIn</Link></li>}
+                        {user?.email?<li><img src={user?.photoURL} alt="Empty!" width="200" height="200"/></li>:""}
                         
                     </ul>
                 </div>
