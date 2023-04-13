@@ -43,6 +43,19 @@ const FoodDetails = () => {
             })
     }, [id])
 
+    // select food for carts
+    const handleCarts = () => {
+        const toDay = new Date();
+        const cartsData = {
+            name: foodDetailsData.name,
+            image: foodDetailsData.imgOne,
+            price: foodDetailsData.price,
+            describe: foodDetailsData.description,
+            date: toDay,
+            time: toDay.getMinutes()
+        }
+        console.log(cartsData);
+    }
     return (
         <div className='foodDetailsContainer'>
             <div className='foodDetail'>
@@ -56,7 +69,7 @@ const FoodDetails = () => {
                         <button className='quantiteMinBtn' onClick={handleDecrementBtn}>-</button>
                     </div>
                 </div>
-                <Link to="/carts"><button className='addToCartBtn'><BsCartDash/> Add</button></Link>
+                <Link to="/carts"><button className='addToCartBtn' onClick={handleCarts}><BsCartDash/> Add</button></Link>
                 {/* all related img */}
                 <div className='relatedImg'>
                     <div>

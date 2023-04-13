@@ -17,7 +17,8 @@ const Usefirebase = () => {
             .then((result) => {
                 const user = result.user
                 // console.log(user);
-                setUser(user);
+                // setUser(user);
+                saveUserToDb(user?.displayName, user?.email, user?.photoURL, 'PUT');
                 setError("");
                 const destination = location?.state?.from || "/";
                 navigation(destination);
@@ -53,6 +54,7 @@ const Usefirebase = () => {
                 const registeredUser = {email, photoURL: userImage, displayName: userName};
                 // console.log(registeredUser);
                 setUser(registeredUser);
+                saveUserToDb(userName, email, userImage, 'POST');
                 // update registered user
                 updateProfile(auth.currentUser, {
                     displayName: userName, photoURL: userImage
@@ -95,7 +97,25 @@ const Usefirebase = () => {
                 setError(error.message)
             }).finally(() => setIsLoading(false))
     } 
-    
+
+    // save user data to database
+    const saveUserToDb = (name, email, image, method) => {
+        const usersData = {name, email, image};
+        console.log(usersData);
+        const url = `http://localhost:3600/users`;
+        fetch(url, {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(usersData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+
+            })
+    } 
 
     return{
         user,
