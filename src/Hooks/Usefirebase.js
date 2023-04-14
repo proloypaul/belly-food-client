@@ -1,6 +1,7 @@
 import { getAuth, signInWithPopup,createUserWithEmailAndPassword , GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import initialization from "../Firebase/firebase.init"
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 initialization();
 const Usefirebase = () => {
@@ -101,7 +102,7 @@ const Usefirebase = () => {
     // save user data to database
     const saveUserToDb = (name, email, image, method) => {
         const usersData = {name, email, image};
-        console.log(usersData);
+        // console.log(usersData);
         const url = `http://localhost:3600/users`;
         fetch(url, {
             method: method,
@@ -112,7 +113,14 @@ const Usefirebase = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
+                if(data.acknowledged){
+                    Swal.fire(
+                        'Welcome!',
+                        'You are Registered Now',
+                        'success'
+                      )
+                }
 
             })
     } 

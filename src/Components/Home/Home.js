@@ -8,10 +8,7 @@ import Usefirebase from '../../Hooks/Usefirebase';
 
 const Home = () => {
     const {user} = Usefirebase();
-    const toDay = new Date();
-    const time = toDay.getMinutes();
-    console.log(toDay);
-    console.log(time);
+    
     // console.log(user);
     // console.log(user?.photoURL);
     return (

@@ -4,6 +4,7 @@ import {FcGoogle} from 'react-icons/fc';
 import './SignUp.css';
 import Usefirebase from '../../../Hooks/Usefirebase';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const SignUp = () => {
     
     const defaultRegisterData = {date: new Date().toLocaleDateString()}
@@ -48,7 +49,12 @@ const SignUp = () => {
             alert("Registered successfully!");
             e.target.reset();
         }else{
-            alert("Please type same password in retype field");
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'TypeError! do not match Password',
+              })
+            // alert("Please type same password in retype field");
         }
         
     }
@@ -57,7 +63,7 @@ const SignUp = () => {
         <div className='signUpContainer'>
             <form onSubmit={handleRegisterData}>
                 <label className="fileUpload">
-                    <input  type='file' name='image'  onChange={handleImg}/>
+                    <input  type='file' name='image'  onChange={handleImg} required/>
                     <span><BsCameraFill/></span>
                     {/* {imgUpload? <img src={imgLink} alt='Empty!' width="200px" height="200px"/>:<span><BsCameraFill/></span>} */}
                     <p className='successMsg'>{imgUpload? "Relax Your Image Uploaded": ""} </p>
