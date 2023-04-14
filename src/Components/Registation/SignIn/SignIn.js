@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './SignIn.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import {FcGoogle} from 'react-icons/fc';
 import Usefirebase from '../../../Hooks/Usefirebase';
 
 
 const SignIn = () => {
-    const {loginWithEmailAndPassword,error} = Usefirebase();
+    const {loginWithEmailAndPassword, signInUsingGoogle, error} = Usefirebase();
     const [signInData, setSignInData] = useState({});
     const navigation = useNavigate();
     const location = useLocation();
@@ -34,6 +35,9 @@ const SignIn = () => {
                     <p className='errorMsg'>{error}</p>
                     <p className='signInMsg'>Haven't Register Yet <Link to="/signUp">Register fast</Link></p>
                 </form>
+                <div>
+                    <button className='signInWithGoogleBtn' onClick={() => signInUsingGoogle(navigation, location)}><FcGoogle/></button>
+                </div>
             </div>
         </div>
     );

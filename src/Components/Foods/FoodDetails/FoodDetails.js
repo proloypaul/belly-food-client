@@ -45,16 +45,33 @@ const FoodDetails = () => {
 
     // select food for carts
     const handleCarts = () => {
-        const toDay = new Date();
         const cartsData = {
             name: foodDetailsData.name,
+            foodTitle: `${foodDetailsData.type} Food`,
             image: foodDetailsData.imgOne,
-            price: foodDetailsData.price,
+            price: price,
             describe: foodDetailsData.description,
-            date: toDay,
-            time: toDay.getMinutes()
+            foodNum: foodNumber? foodNumber: 1,
+            date: new Date().toLocaleDateString(),
+            arriveTime: "10-20",
+            ourLocation: "Tejgong Restaurant GPR" 
         }
         console.log(cartsData);
+        
+        const url = `http://localhost:3600/carts`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cartsData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            }).catch(error => {
+                console.log(error.message);
+            })
     }
     return (
         <div className='foodDetailsContainer'>

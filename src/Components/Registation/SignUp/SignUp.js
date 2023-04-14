@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import {BsCameraFill} from 'react-icons/bs';
-import {FcGoogle} from 'react-icons/fc';
 import './SignUp.css';
 import Usefirebase from '../../../Hooks/Usefirebase';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const SignUp = () => {
     
@@ -12,8 +11,7 @@ const SignUp = () => {
     // const [imgLink, setImgLink] = useState('');
     const [userRegisterData, setUserRegisterData] = useState(defaultRegisterData);
     const navigation = useNavigate();
-    const location = useLocation();
-    const {signInUsingGoogle, registerUsingEmailAndPassword, error} = Usefirebase();
+    const {registerUsingEmailAndPassword, error} = Usefirebase();
 
 
     // handle user img 
@@ -85,9 +83,9 @@ const SignUp = () => {
                     <button type='submit' className='commonButton'>Process</button>
                 </div>
                 <p className='errorMsg'>{error}</p>
-                <div>
+                {/* <div>
                     <button className='signInWithGoogleBtn' onClick={() => signInUsingGoogle(navigation, location)}><FcGoogle/></button>
-                </div>
+                </div> */}
             </form>
         </div>
     );

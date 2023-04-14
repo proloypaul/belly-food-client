@@ -80,6 +80,11 @@ const Usefirebase = () => {
                 const user = result.user;
                 setUser(user)
                 setError('')
+                Swal.fire(
+                    '!WelCome',
+                    'Login Successfully',
+                    'success'
+                  )
                 const destination = location?.state?.from || '/';
                 navigation(destination)
             }).catch(error => {
@@ -116,12 +121,14 @@ const Usefirebase = () => {
                 // console.log(data)
                 if(data.acknowledged){
                     Swal.fire(
-                        'Welcome!',
+                        'WelCome!',
                         'You are Registered Now',
                         'success'
                       )
                 }
 
+            }).catch(error => {
+                setError(error.message)
             })
     } 
 
