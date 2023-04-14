@@ -58,3 +58,24 @@
     display: grid;
     grid-template-columns: 6fr 6fr;
 }
+.allCarts .cartTitleOne{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+.allCarts .allCartsData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    background-color: gainsboro;
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 5px;
+}
+.allCarts .allCartsData .cartPrices{
+    margin: 0px 20px;
+}
+.allCarts .allCartsData .cartBtns{
+    padding-left: 20px;
+
+}
