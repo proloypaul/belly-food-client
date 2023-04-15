@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { RiDeleteBinFill} from 'react-icons/ri';
 import './Carts.css';
 const Carts = () => {
     const [cartsData, setCartsData] = useState([])
@@ -35,14 +36,15 @@ const Carts = () => {
                         {cartsData.map(cart => <div key={cart._id} className='allCartsData'>
                             <img src={cart.image} alt="Empty!" width="100px" height="100" />
                             <div className='cartPrices'>
-                                <p>{cart.foodTitle}</p>
-                                <p>${cart.price}</p>
-                                <p>Delivery free: ${cart.delivery_free}</p>
+                                <p className="cartPriceOne">{cart.foodTitle}</p>
+                                <p className="cartPriceTwo">${cart.price}</p>
+                                <p className="cartPriceThree">Delivery free: ${cart.delivery_free}</p>
                             </div>
                             <div className='cartBtns'>
-                                <button>+</button>
-                                <span>{cart.foodNum}</span>
-                                <button>-</button>
+                                <button className="cartBtnOne">+</button>
+                                <span className='cartItem'>0{cart.foodNum}</span>
+                                <button className='cartBtnOne'>-</button>
+                                <p style={{textAlign: "right"}}><button className='cartDltBtn'><RiDeleteBinFill/></button></p>
                             </div>
                         </div>)}
                     </div>

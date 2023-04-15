@@ -75,7 +75,47 @@
 .allCarts .allCartsData .cartPrices{
     margin: 0px 20px;
 }
+.allCartsData .cartPrices .cartPriceOne{
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.allCartsData .cartPrices .cartPriceTwo{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+    color: crimson;
+    margin: 0px;
+    padding: 0px;
+}
+.allCartsData .cartPrices .cartPriceThree{
+    color: rgb(186, 180, 180);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+}
 .allCarts .allCartsData .cartBtns{
     padding-left: 20px;
-
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.allCartsData .cartBtns .cartBtnOne{
+    background:gainsboro;
+    border: 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+.allCartsData .cartBtns .cartItem{
+    background: white;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px 7px;
+    border: 0;
+    border-radius: 5px;
+}
+.cartDltBtn{
+    color: red;
+    background: gainsboro;
+    font-size: 25px;
+    border: 0;
+    cursor: pointer;
 }
