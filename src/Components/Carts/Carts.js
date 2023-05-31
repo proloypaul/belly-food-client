@@ -50,6 +50,24 @@ const Carts = () => {
       }
     });
   };
+
+  //   set subtotal of food order
+  let subtotal = 0;
+  cartsData.map((cart) => {
+    const singleCartPrice = cart.price * cart.foodNum;
+    subtotal = subtotal + parseInt(singleCartPrice);
+    // return subtotal;
+    return 0;
+  });
+  //   console.log(subtotal);
+
+  // get tax according to subtotal price
+  const tax = 5 / 100;
+  const taxAmount = tax * subtotal;
+
+  // total price of user order
+  const totalPriceWithTax = taxAmount + subtotal + 1; // one is delivery charge of user order
+
   return (
     <div className="cartsContainer">
       <div className="editDelivery">
@@ -129,10 +147,10 @@ const Carts = () => {
               <p>Total: </p>
             </div>
             <div>
-              <p>$...</p>
-              <p>$...</p>
-              <p>$...</p>
-              <p>$...</p>
+              <p>$ {subtotal}</p>
+              <p>$ 1</p>
+              <p>$ {taxAmount}</p>
+              <p>$ {totalPriceWithTax}</p>
             </div>
           </div>
           <button className="checkoutFoodBtn">Place Order</button>
