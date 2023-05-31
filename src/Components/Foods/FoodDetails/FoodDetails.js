@@ -75,7 +75,7 @@ const FoodDetails = () => {
       name: foodDetailsData.name,
       foodTitle: `${foodDetailsData.type} Food`,
       image: foodDetailsData.imgOne,
-      price: price,
+      price: price ? price : foodDetailsData.price,
       describe: foodDetailsData.description,
       foodNum: foodNumber ? foodNumber : 1,
       delivery_free: 1,
