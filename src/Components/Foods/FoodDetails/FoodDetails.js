@@ -120,7 +120,7 @@ const FoodDetails = () => {
                         <button className='quantiteMinBtn' onClick={handleDecrementBtn}>-</button>
                     </div>
                 </div>
-                {alreadyAddedToCart? <Link to="/carts"><button className='addToCartBtnSuccess'><BsCartDash/> Added</button></Link>: <Link to="/carts"><button className='addToCartBtn' onClick={handleCarts}><BsCartDash/> Add</button></Link>}
+                {alreadyAddedToCart? <Link to="/carts"><button className='addToCartBtnSuccess'><BsCartDash/> Added</button></Link>: <Link to="/carts"><button className='addToCartBtn' onClick={handleCarts}><BsCartDash/> Add To cart</button></Link>}
                 {/* <Link to="/carts"><button className='addToCartBtn' onClick={handleCarts}><BsCartDash/> Add</button></Link> */}
                 {/* all related img */}
                 <div className='relatedImg'>
