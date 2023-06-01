@@ -4,11 +4,11 @@ import { BsCartDash } from "react-icons/bs";
 import "./Carts.css";
 import Usefirebase from "../../Hooks/Usefirebase";
 import { Link } from "react-router-dom";
-import Swal from "sweetalert2";
+import { handleDltCart } from "../../CommonStyle/CommonCode";
+
 const Carts = () => {
   const { user } = Usefirebase();
   const [cartsData, setCartsData] = useState([]);
-
   // console.log(user?.email);
   //fetch carts data according to user email
   useEffect(() => {
@@ -16,40 +16,10 @@ const Carts = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         setCartsData(data);
       });
   }, [user.email]);
-
-  // delete cart from mongodb
-  const handleDltCart = (id) => {
-    Swal.fire({
-      title: "Are You Sure!",
-      text: "It will be deleted also your history!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        const url = `http://localhost:3600/carts/${id}`;
-        fetch(url, {
-          method: "DELETE",
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.deletedCount > 0) {
-              const withOutDeletedCart = cartsData.filter(
-                (carts) => carts._id !== id
-              );
-              setCartsData(withOutDeletedCart);
-              Swal.fire("Deleted!", "Your file cart been deleted.", "success");
-            }
-          });
-      }
-    });
-  };
 
   //   set subtotal of food order
   let subtotal = 0;
@@ -63,7 +33,7 @@ const Carts = () => {
 
   // get tax according to subtotal price
   const tax = 5 / 100;
-  const taxAmount = tax * subtotal;
+  const taxAmount = parseFloat((tax * subtotal).toFixed(2));
 
   // total price of user order
   const totalPriceWithTax = taxAmount + subtotal + 1; // one is delivery charge of user order
@@ -119,7 +89,9 @@ const Carts = () => {
                     <p style={{ textAlign: "right" }}>
                       <button
                         className="cartDltBtn"
-                        onClick={() => handleDltCart(cart._id)}
+                        onClick={
+                          () => handleDltCart(cart._id, cartsData, setCartsData) // handleDltCart function come from commonCode file
+                        }
                       >
                         <RiDeleteBinFill />
                       </button>
@@ -146,7 +118,7 @@ const Carts = () => {
               <p>Tax: </p>
               <p>Total: </p>
             </div>
-            <div>
+            <div className="cartAmountTitleValue">
               <p>$ {subtotal}</p>
               <p>$ 1</p>
               <p>$ {taxAmount}</p>

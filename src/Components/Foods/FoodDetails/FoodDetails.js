@@ -5,6 +5,10 @@ import { AiOutlineRight } from "react-icons/ai";
 import "./FoodDetains.css";
 import Swal from "sweetalert2";
 import Usefirebase from "../../../Hooks/Usefirebase";
+import {
+  handleDecrementBtn,
+  handleIncrementBtn,
+} from "../../../CommonStyle/CommonCode";
 const FoodDetails = () => {
   // const id = useParams();
   // console.log("food id", id);
@@ -13,32 +17,11 @@ const FoodDetails = () => {
   const [foodDetailsData, setFoodDetailsData] = useState([]);
   const [postedCart, setPostedCart] = useState([]);
   // const [addedToCart, setAddedToCart] = useState(false);
-  let [price, setPrice] = useState(0);
-  let [foodNumber, setFoodNumber] = useState(0);
+  let [price, setPrice] = useState(0); // this state use in commonCode file
+  let [foodNumber, setFoodNumber] = useState(0); // this state use in commonCode file
 
   // console.log("price of food", price);
   // console.log("foodNumber of food", foodNumber);
-  // handle increment food button
-
-  const handleIncrementBtn = () => {
-    const initialPrice = foodDetailsData.price;
-    if (0 <= price && 0 <= foodNumber) {
-      price = price + initialPrice;
-      setPrice(price);
-      foodNumber = foodNumber + 1;
-      setFoodNumber(foodNumber);
-    }
-  };
-  // handle decrement food button
-  const handleDecrementBtn = () => {
-    const initialPriceTwo = foodDetailsData.price;
-    if (0 < price && 0 < foodNumber) {
-      price = price - initialPriceTwo;
-      setPrice(price);
-      foodNumber = foodNumber - 1;
-      setFoodNumber(foodNumber);
-    }
-  };
 
   // loaded single data
   useEffect(() => {
@@ -119,12 +102,35 @@ const FoodDetails = () => {
           <div className="quantiteBtn">
             <button
               className="quantiteMaxBtn"
-              onClick={() => handleIncrementBtn()}
+              onClick={
+                () =>
+                  handleIncrementBtn(
+                    foodDetailsData,
+                    price,
+                    setPrice,
+                    foodNumber,
+                    setFoodNumber
+                  )
+                // handleIncrementBtn funciton come from commonCode funciton
+              }
             >
               <abbr title="Click again">+</abbr>
             </button>
             <h4 className="quantiteNumber">{foodNumber ? foodNumber : 1}</h4>
-            <button className="quantiteMinBtn" onClick={handleDecrementBtn}>
+            <button
+              className="quantiteMinBtn"
+              onClick={
+                () =>
+                  handleDecrementBtn(
+                    foodDetailsData,
+                    price,
+                    setPrice,
+                    foodNumber,
+                    setFoodNumber
+                  )
+                // handleDecrementBtn funciton come from commonCode funciton
+              }
+            >
               -
             </button>
           </div>
