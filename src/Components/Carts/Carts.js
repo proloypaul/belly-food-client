@@ -12,6 +12,10 @@ const Carts = () => {
   const [cartsData, setCartsData] = useState([]);
   const [saveData, setSaveData] = useState({});
 
+  // reload page using program
+  if(!cartsData){
+    window.location.reload();
+  }
   // console.log(user?.email);
   //fetch carts data according to user email
   useEffect(() => {
@@ -52,16 +56,52 @@ const Carts = () => {
   // handle save and continue button
   const handleSaveAndContinueData = (event) => {
     event.preventDefault();
-    console.log(saveData);
+    // console.log(saveData);
   };
 
   const handlePlaceOrder = () => {
-    if (saveData.YourLocation) {
-      console.log("You are ready to order Now");
+    if (saveData.YourLocation && saveData.DeliveryTo && saveData.FlatSuiteFloor && cartsData) {
+      // console.log("You are ready to order Now");
+
+      // sent order to server
+      const orderedAllData = {
+        DeliveryTo: saveData.DeliveryTo,
+        location: saveData.YourLocation,
+        FlatAndFloor: saveData.FlatSuiteFloor,
+        FoodItem: [...cartsData],
+        subTotalPrice: subtotal,
+        totalPriceWithTaxAndDeliver: totalPriceWithTax
+      }
+      
+      const url = `http://localhost:3600/orderinformation`;
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(orderedAllData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            Swal.fire("!Well Done", "Order added Successfully", "success");
+            setCartsData([])
+          }
+        })
+        .catch((error) => {
+          // console.log(error.message);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `${error.message}`,
+          });
+        });
+
+
     } else {
       Swal.fire(
         "Forgate SomeThing...?",
-        "Do not forgate to Save & Continue YourLocation?",
+        "Do not forgate to Save & Continue Your Location?",
         "question"
       );
     }
@@ -79,6 +119,7 @@ const Carts = () => {
             name="DeliveryTo"
             placeholder="Delivery to ..."
             onBlur={collectSaveData}
+            required
           />
           <input
             type="text"
@@ -89,9 +130,10 @@ const Carts = () => {
           />
           <input
             type="text"
-            name="Flat-Suite-floor"
+            name="FlatSuiteFloor"
             placeholder="Flat, suite or floor"
             onBlur={collectSaveData}
+            required
           />
           <input
             type="text"
@@ -105,8 +147,8 @@ const Carts = () => {
             placeholder="Add deliver Instructor"
             onBlur={collectSaveData}
           />
-          {saveData.YourLocation ? (
-            <button type="submit" className="saveAndContinueBtnSaved" disabled>
+          {saveData.YourLocation && saveData.DeliveryTo && saveData.FlatSuiteFloor ? (
+            <button type="submit" className="saveAndContinueBtnSaved">
               Continue to Place Order
             </button>
           ) : (

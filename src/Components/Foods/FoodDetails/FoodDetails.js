@@ -135,16 +135,21 @@ const FoodDetails = () => {
             </button>
           </div>
         </div>
-        {alreadyAddedToCart ? (
+        {alreadyAddedToCart && user?.email ? (
           <Link to="/carts">
             <button className="addToCartBtnSuccess">
               <BsCartDash />
-              Already Added
+               Already Added
             </button>
           </Link>
         ) : (
+          user?.email ?
           <Link to="/carts">
             <button className="addToCartBtn" onClick={handleCarts}>
+              <BsCartDash /> Add To cart
+            </button>
+          </Link> : <Link to="/signIn">
+            <button className="addToCartBtn">
               <BsCartDash /> Add To cart
             </button>
           </Link>
