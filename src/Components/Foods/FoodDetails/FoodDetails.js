@@ -25,7 +25,7 @@ const FoodDetails = () => {
 
   // loaded single data
   useEffect(() => {
-    const url = `http://localhost:3600/foods/${id}`;
+    const url = `https://belly-food-server.vercel.app/foods/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -34,7 +34,7 @@ const FoodDetails = () => {
       });
 
     // load posted carts
-    const urlTwo = `http://localhost:3600/carts`;
+    const urlTwo = `https://belly-food-server.vercel.app/carts`;
     fetch(urlTwo)
       .then((res) => res.json())
       .then((data) => {
@@ -67,7 +67,7 @@ const FoodDetails = () => {
     };
     // console.log(cartsData);
 
-    const url = `http://localhost:3600/carts`;
+    const url = `https://belly-food-server.vercel.app/carts`;
     fetch(url, {
       method: "POST",
       headers: {

@@ -19,7 +19,7 @@ const Carts = () => {
   // console.log(user?.email);
   //fetch carts data according to user email
   useEffect(() => {
-    const url = `http://localhost:3600/carts/${user.email}`;
+    const url = `https://belly-food-server.vercel.app/carts/${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -73,7 +73,7 @@ const Carts = () => {
         totalPriceWithTaxAndDeliver: totalPriceWithTax
       }
       
-      const url = `http://localhost:3600/orderinformation`;
+      const url = `https://belly-food-server.vercel.app/orderinformation`;
       fetch(url, {
         method: "POST",
         headers: {

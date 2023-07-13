@@ -108,7 +108,7 @@ const Usefirebase = () => {
     const saveUserToDb = (name, email, image, method) => {
         const usersData = {name, email, image};
         // console.log(usersData);
-        const url = `http://localhost:3600/users`;
+        const url = `https://belly-food-server.vercel.app/users`;
         fetch(url, {
             method: method,
             headers: {

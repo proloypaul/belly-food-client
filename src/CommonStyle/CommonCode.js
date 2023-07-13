@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 export const CommonCodeOne = () => {
   const [foodsData, setFoodsData] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:3600/foods`;
+    const url = `https://belly-food-server.vercel.app/foods`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -30,7 +30,7 @@ export const handleDltCart = (id, cartsData, setCartsData) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      const url = `http://localhost:3600/carts/${id}`;
+      const url = `https://belly-food-server.vercel.app/carts/${id}`;
       fetch(url, {
         method: "DELETE",
       })

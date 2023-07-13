@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='footerContainer'>
             <div className='footer1Part'>
                 <div>
-                    <img src={footerLogo} alt="Empty!" width="100px" heigh="30px" />
+                    <img src={footerLogo} alt="Empty!" width="150px" heigh="60px" />
                 </div>
                 <div>
                     <Link to="/">About Online food</Link>
