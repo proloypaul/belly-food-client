@@ -3,18 +3,23 @@ import Swal from "sweetalert2";
 
 export const CommonCodeOne = () => {
   const [foodsData, setFoodsData] = useState([]);
+  const [loader, setLoader] = useState(false)
+  
   useEffect(() => {
+    setLoader(true)
     const url = `https://belly-food-server.vercel.app/foods`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
         setFoodsData(data);
+        setLoader(false)
       });
   }, []);
 
   return {
     foodsData,
+    loader
   };
 };
 
