@@ -27,8 +27,8 @@ const SignIn = () => {
         <div className='signUpContainer'>
             <div>
                 <form onSubmit={handleSignInData}>
-                    <input className='commonInput' type='email' name='email' placeholder='abcd@gmail.com' onBlur={collectSignInData}/>
-                    <input className='commonInput' type='password' name='password' placeholder='Enter password' onBlur={collectSignInData}/>
+                    <input className='commonInput' type='email' name='email' placeholder='abcd@gmail.com' required onBlur={collectSignInData}/>
+                    <input className='commonInput' type='password' name='password' placeholder='Enter password' required onBlur={collectSignInData}/>
                     <div className='formBtn'>
                         <button className='commonButton' type="submit">Sign In</button>
                     </div>
