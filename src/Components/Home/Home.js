@@ -2,7 +2,7 @@ import React from 'react';
 import Advertise from '../Advertise/Advertise';
 import Breakfast from '../Foods/Breakfast/Breakfast';
 import Foods from '../Foods/Foods';
-import Header from '../Header/Header';
+import Banner from '../Banner/Banner';
 // import Usefirebase from '../../Hooks/Usefirebase';
 
 
@@ -13,7 +13,7 @@ const Home = () => {
     // console.log(user?.photoURL);
     return (
         <div>
-            <Header></Header>
+            <Banner></Banner>
             <Foods></Foods>
             <Breakfast></Breakfast>
             <Advertise></Advertise>

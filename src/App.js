@@ -10,11 +10,13 @@ import Footer from './Components/Footer/Footer';
 import Home from './Components/Home/Home';
 import SignIn from './Components/Registation/SignIn/SignIn';
 import SignUp from './Components/Registation/SignUp/SignUp';
+import Header from './Components/Header/Header';
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <Header></Header>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/signIn' element={<SignIn/>}/>

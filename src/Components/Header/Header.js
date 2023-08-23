@@ -27,16 +27,6 @@ const Header = () => {
                     </ul>
                 </div>
             </nav>
-            {/* banner section              */}
-            <div className='bannerContainer'>
-                <div className='bannerTitle'>
-                    <h1>Best food waiting for your belly</h1>
-                    <div className='bannerSearch'>
-                        <input placeholder='Search food items...'/>
-                        <button className='commonButtonTwo'>Search</button>
-                    </div>
-                </div>
-            </div>
         </div>
     );
 };

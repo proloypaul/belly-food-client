@@ -1,0 +1,29 @@
+.bannerContainer{
+    width: 100%;
+    height: 410px;
+    background-image: url(../../Images/bannerbackground.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 0px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.bannerContainer .bannerTitle{
+    text-align: center;
+}
+.bannerTitle h1{
+    font-family: 'League Spartan', sans-serif;
+    font-size: 30px;
+}
+.bannerTitle .bannerSearch input{
+    padding: 5px 10px;
+    border:0;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width: 50%;
+    margin-right: -30px;
+}
