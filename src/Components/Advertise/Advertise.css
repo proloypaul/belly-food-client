@@ -21,6 +21,10 @@
     width: 300px;
     padding-bottom: 20px;
 }
+.advertiseBoxes img{
+    border: 0;
+    border-radius: 10px;
+}
 .advertiseBoxes .advertiseBox:hover{
     background-color: #ffffff;
     box-shadow: 5px 3px 4px 3px lightgray;

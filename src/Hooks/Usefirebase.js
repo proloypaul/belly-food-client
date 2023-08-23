@@ -17,7 +17,7 @@ const Usefirebase = () => {
         signInWithPopup(auth, googleAuthProvider)
             .then((result) => {
                 const user = result.user
-                // console.log(user);
+                console.log(user);
                 // setUser(user);
                 saveUserToDb(user?.displayName, user?.email, user?.photoURL, 'PUT');
                 setError("");

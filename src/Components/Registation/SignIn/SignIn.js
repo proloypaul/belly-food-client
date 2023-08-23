@@ -3,7 +3,7 @@ import './SignIn.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc';
 import Usefirebase from '../../../Hooks/Usefirebase';
-
+import bellyFoodLogo from '../../../Images/logo.png'
 
 const SignIn = () => {
     const {loginWithEmailAndPassword, signInUsingGoogle, error} = Usefirebase();
@@ -26,6 +26,9 @@ const SignIn = () => {
     return (
         <div className='signUpContainer'>
             <div>
+                <div style={{textAlign: 'center', paddingBottom: '50px'}}>
+                    <img src={bellyFoodLogo} alt='Empty!' width='200px' height='100px'/>
+                </div>
                 <form onSubmit={handleSignInData}>
                     <input className='commonInput' type='email' name='email' placeholder='abcd@gmail.com' required onBlur={collectSignInData}/>
                     <input className='commonInput' type='password' name='password' placeholder='Enter password' required onBlur={collectSignInData}/>

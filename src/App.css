@@ -4,11 +4,29 @@
   background-color: crimson;
   color: #fff;
   font-size: 15px;
+  font-weight: 200;
+  padding: 10px 0px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 20%;
+  transition: all 0.4s ease-in-out;
+}
+.commonButtonTwo{
+  background-color: crimson;
+  color: #fff;
+  font-size: 15px;
   font-weight: 500;
   padding: 5px 20px;
   border: 0;
   border-radius: 15px;
   cursor: pointer;
+}
+
+.commonButton:hover{
+  background-color: rgb(211, 56, 87);
+  font-weight: 600;
+
 }
 
 .loaderStyle{

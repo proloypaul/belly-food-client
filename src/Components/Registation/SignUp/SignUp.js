@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import {BsCameraFill} from 'react-icons/bs';
+import {CgProfile} from 'react-icons/cg';
 import './SignUp.css';
 import Usefirebase from '../../../Hooks/Usefirebase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const SignUp = () => {
     
@@ -62,9 +62,9 @@ const SignUp = () => {
             <form onSubmit={handleRegisterData}>
                 <label className="fileUpload">
                     <input  type='file' name='image'  onChange={handleImg} required/>
-                    <span><BsCameraFill/></span>
+                    <p style={{textAlign:'center',fontSize: '80px'}}><CgProfile/></p>
                     {/* {imgUpload? <img src={imgLink} alt='Empty!' width="200px" height="200px"/>:<span><BsCameraFill/></span>} */}
-                    <p className='successMsg'>{imgUpload? "Relax Your Image Uploaded": ""} </p>
+                    {imgUpload? <p className='successMsg'>Your Image Uploaded</p>: ""}
                 </label>
                 
                 <div className='fullName'>
@@ -79,6 +79,7 @@ const SignUp = () => {
                     <input type='radio' name='gender' value='male' required onBlur={collectRegisterData}/>Male
                     <input type='radio' name='gender' value='female' required onBlur={collectRegisterData}/>Female
                 </div>
+                <p>Alreay Register to belly_Food <Link to='/signIn'>LogIn</Link></p>
                 <div className='formBtn'>
                     <button type='submit' className='commonButton'>Process</button>
                 </div>

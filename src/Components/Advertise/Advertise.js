@@ -7,27 +7,29 @@ import { Link } from 'react-router-dom';
 const advertiseData = [
     {
         id: 1,
+        name:"Home Delivery",
+        describe: "Keep your systems in sync with authomated web hook based notifications each time link is paid and how we dream about out future.",
+        img: "https://i.ibb.co/mv6qCw1/pexels-norma-mortenson-4392872.jpg",
+    },
+    {
+        id: 2,
         name:"Fast Delivery",
         describe: "Keep your systems in sync with authomated web hook based notifications each time link is paid and how we dream about out future.",
         img: "https://i.ibb.co/6Zfhsnt/Group-1151.png",
     },
     {
-        id: 2,
+        id: 3,
         name:"A Good Auto Responder",
         describe: "Keep your systems in sync with authomated web hook based notifications each time link is paid and how we dream about out future.",
-        img: "https://i.ibb.co/wsJ6Xz1/chef-cook-food-33614.png",
-    },
-    {
-        id: 3,
-        name:"Home Delivery",
-        describe: "Keep your systems in sync with authomated web hook based notifications each time link is paid and how we dream about out future.",
-        img: "https://i.ibb.co/Bthb520/architecture-building-city-2047397.png",
+        img: "https://i.ibb.co/T29B8js/pexels-tanya-gorelova-3933217.jpg",
     },
 ]
 
 // https://ibb.co/FKQ2L4R
 // https://ibb.co/DpGKyRn
 // https://ibb.co/yRbTsfk
+// https://ibb.co/JtDR769
+// https://ibb.co/HNnzDs1
 const Advertise = () => {
     return (
         <div className='advertiseContainer'>
