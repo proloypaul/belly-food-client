@@ -23,7 +23,6 @@ const Header = () => {
                         <li><Link to="/signUp">SingUp</Link></li>}
                         {user?.email? "": <li><Link to="/signIn" className='commonButtonTwo'>SignIn</Link></li>}
                         {user?.email?user?.photoURL?<li><img className='userNavbarImg' src={user?.photoURL} alt="Empty!" width="50px" height="50px"/></li>:<li><img className='userNavbarImg' src={fackProfileImg} alt="Empty!" width="50px" height="50px"/></li>: ""}
-                        
                     </ul>
                 </div>
             </nav>

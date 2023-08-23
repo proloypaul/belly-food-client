@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import './SignIn.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc';
+import {AiFillGithub} from 'react-icons/ai';
+import {FaFacebookF} from 'react-icons/fa';
 import Usefirebase from '../../../Hooks/Usefirebase';
 import bellyFoodLogo from '../../../Images/logo.png'
+import Swal from 'sweetalert2';
 
 const SignIn = () => {
     const {loginWithEmailAndPassword, signInUsingGoogle, error} = Usefirebase();
@@ -21,6 +24,7 @@ const SignIn = () => {
     const handleSignInData = e => {
         e.preventDefault();
         loginWithEmailAndPassword(signInData.email, signInData.password, navigation, location);
+        Swal.fire("!LogIn", "LogIn Successfully😊", "success");
         // console.log(signInData);
     }
     return (
@@ -38,8 +42,10 @@ const SignIn = () => {
                     <p className='errorMsg'>{error}</p>
                     <p className='signInMsg'>Haven't Register Yet <Link to="/signUp">Register fast</Link></p>
                 </form>
-                <div>
-                    <button className='signInWithGoogleBtn' onClick={() => signInUsingGoogle(navigation, location)}><FcGoogle/></button>
+                <div className='singInAllButton'>
+                    <button className='signInWithGoogle' onClick={() => signInUsingGoogle(navigation, location)}><FcGoogle/></button>
+                    <button className='signInWithFacebookBtn' onClick={() => signInUsingGoogle(navigation, location)}><FaFacebookF/></button>
+                    <button className='signInWithGithubBtn' onClick={() => signInUsingGoogle(navigation, location)}><AiFillGithub/></button>
                 </div>
             </div>
         </div>

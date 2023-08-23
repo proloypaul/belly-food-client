@@ -23,6 +23,7 @@ const Usefirebase = () => {
                 setError("");
                 const destination = location?.state?.from || "/";
                 navigation(destination);
+                Swal.fire("!Google SignIn", "SignIn with Google Successfully😊", "success");
             }).catch(error => {
                 // console.log(error.message);
                 setError(error.message);
@@ -66,6 +67,7 @@ const Usefirebase = () => {
                 });
 
                 navigation('/');
+                Swal.fire("!Register", "You Are Successfully Register😊", "success");
                 setError("");
             }).catch(error => {
                 setError(error.message);

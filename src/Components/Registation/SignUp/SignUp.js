@@ -42,18 +42,30 @@ const SignUp = () => {
     const handleRegisterData = (e) => {
         e.preventDefault()
         // console.log(userRegisterData);
-        if(userRegisterData.password === userRegisterData.retypePassword){
-            registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName, navigation);
-            alert("Registered successfully!");
-            e.target.reset();
+        if(imgUpload && userRegisterData.email && userRegisterData.FirstName && userRegisterData.LastName){
+            if(userRegisterData.password === userRegisterData.retypePassword){
+                console.log(userRegisterData)
+                registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName, navigation);
+                e.target.reset();
+            }else{
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'TypeError! do not match Password',
+                  })
+                // alert("Please type same password in retype field");
+            }
+            
         }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'TypeError! do not match Password',
-              })
-            // alert("Please type same password in retype field");
+            Swal.fire(
+                "Upload Image first?",
+                "Then type your name, email, password",
+                "question"
+              );
+              e.target.reset();
         }
+
+        
         
     }
 
@@ -81,7 +93,7 @@ const SignUp = () => {
                 </div>
                 <p>Alreay Register to belly_Food <Link to='/signIn'>LogIn</Link></p>
                 <div className='formBtn'>
-                    <button type='submit' className='commonButton'>Process</button>
+                    <button type='submit' className='commonButton'>Register</button>
                 </div>
                 <p className='errorMsg'>{error}</p>
                 {/* <div>
