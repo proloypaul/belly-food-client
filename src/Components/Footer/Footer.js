@@ -5,6 +5,13 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div className='footerContainer'>
+            <div className='footerTitle'>
+                <p>LET'S CONNECT WITH OUS</p>
+                <div>
+                    <input type='email' placeholder='Enter Your abc@gmail.com'/>
+                    <button>SUBSCRIBES NOW</button>
+                </div>
+            </div>
             <div className='footer1Part'>
                 <div>
                     <img src={footerLogo} alt="Empty!" width="150px" heigh="60px" />
