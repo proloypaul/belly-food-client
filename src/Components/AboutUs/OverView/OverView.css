@@ -1,0 +1,41 @@
+.overViewContainer{
+    padding: 60px 80px;
+}
+
+.overViewContent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.overViewPartOne .overViewTitle{
+    border-bottom: 2px solid black;
+    
+}
+.overViewPartOne .overViewTitle p{
+    font-size: 80px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+    padding-bottom: 10px;
+    margin-bottom: -1px;
+} 
+.overViewPartOne .overViewTitle .alignImg{
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+}
+.overViewPartOne .overViewFoods{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px
+}
+.overViewPartOne .overViewFoods p{
+    font-family:'League Spartan', sans-serif;
+    font-size: 18px;
+    width: 60%;
+}
+.overViewPartOne .overViewFoods a{
+    color: black;
+    font-weight: 500;
+}

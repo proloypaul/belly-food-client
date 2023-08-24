@@ -32,9 +32,9 @@ function App() {
         </Routes>
         <Footer></Footer>
       </BrowserRouter>
-      {/* <Home></Home> */}
     </div>
   );
 }
 
+// https://dribbble.com/shots/22007304-Restaurant-Website
 export default App;

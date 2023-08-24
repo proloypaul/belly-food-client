@@ -44,7 +44,7 @@ const SignUp = () => {
         // console.log(userRegisterData);
         if(imgUpload && userRegisterData.email && userRegisterData.FirstName && userRegisterData.LastName){
             if(userRegisterData.password === userRegisterData.retypePassword){
-                console.log(userRegisterData)
+                // console.log(userRegisterData)
                 registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName, navigation);
                 e.target.reset();
             }else{
