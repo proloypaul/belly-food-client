@@ -1,0 +1,33 @@
+.categoriesContainer{
+    padding: 40px 40px;
+}
+.categoriestitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.categoriestitle p{
+    padding-right: 50px;
+    font-size: 80px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.categoriestitle span{
+    font-size: 18px;
+    font-family:'League Spartan', sans-serif;
+}
+.categoriesContent{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+}
+.categoriesContent .categoriesFoodName{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    border-bottom: 2px solid black;
+}
+.categoriesContent .categoriesFoodName p{
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
