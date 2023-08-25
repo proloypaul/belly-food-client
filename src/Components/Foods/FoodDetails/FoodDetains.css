@@ -1,4 +1,5 @@
 .foodDetailsContainer{
+    padding: 40px 20px;
     display: grid;
     grid-template-columns: 6fr 6fr;
     margin: 40px 40px;
@@ -48,6 +49,8 @@
     margin: 20px 0px;
 }
 .addToCartBtn, .addToCartBtnSuccess{
+    display: flex;
+    align-items: center;
     background-color: crimson;
     color: #fff;
     padding: 10px 20px;
@@ -69,7 +72,7 @@
 }
 .foodDetail .relatedImg{
     background-color: #f4e9e9;
-    padding-left: 20px;
+    padding: 20px;
     border: 0;
     border-radius: 5px;
     margin: 20px 0px;
@@ -84,7 +87,7 @@
     color: crimson;
     cursor: pointer;
 }
-.relatedImg .rightIcon:hover{
+.relatedImg:hover .rightIcon{
     color: #000;
     transition: all 0.5s ease-in-out 0.1s;
 }

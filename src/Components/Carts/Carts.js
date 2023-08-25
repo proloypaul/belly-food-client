@@ -137,7 +137,7 @@ const Carts = () => {
           />
           <input
             type="text"
-            name="Bussiness Name"
+            name="BussinessName"
             placeholder="Bussiness Name"
             onBlur={collectSaveData}
           />

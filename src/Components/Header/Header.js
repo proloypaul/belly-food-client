@@ -18,7 +18,8 @@ const Header = () => {
                 </Link>
                 <div className='navbarOption'>
                     <ul>
-                        <li><Link to="/carts"><BsCartDash/></Link></li>
+                        <li><Link to="/carts" className='flex items-center'><BsCartDash/> Carts</Link></li>
+                        {/* <li><Link to="/carts">Carts</Link></li> */}
                         {user?.email?<li><Link to="/signIn" className='commonButtonTwo' onClick={signOutProcess}>SignOut</Link></li>:
                         <li><Link to="/signUp">SingUp</Link></li>}
                         {user?.email? "": <li><Link to="/signIn" className='commonButtonTwo'>SignIn</Link></li>}

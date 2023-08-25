@@ -13,15 +13,16 @@
     align-items: center;
     justify-content: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 40px;
 }
 .allFoods .foods{
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 20px;
+    padding: 40px 20px;
     cursor: pointer;
 }
 .allFoods .foods:hover{
     background-color: #ffffff;
-    padding: 5px 10px;
     box-shadow: 5px 3px 4px 3px lightgray;
     border: 0;
     border-radius: 10px;
@@ -31,6 +32,7 @@
     font-size: 16px;
     font-weight: 500;
     color: #000;
+    padding: 20px 0px;
 }
 .allFoods .foods .foodMsg{
     color: gray;
@@ -39,6 +41,7 @@
 }
 .allFoods .foods .foodPrice{
     color: #000000;
+    padding: 20px 0px;
 }
 .checkoutFood{
     text-align: center;

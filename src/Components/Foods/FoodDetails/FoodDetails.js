@@ -157,7 +157,7 @@ const FoodDetails = () => {
         {/* <Link to="/carts"><button className='addToCartBtn' onClick={handleCarts}><BsCartDash/> Add</button></Link> */}
         {/* all related img */}
         <div className="relatedImg">
-          <div>
+          <div className="flex">
             <Link to="/allFood">
               <img
                 src={foodDetailsData.imgTwo}

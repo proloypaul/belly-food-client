@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './SignIn.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {FcGoogle} from 'react-icons/fc';
 import {AiFillGithub} from 'react-icons/ai';
