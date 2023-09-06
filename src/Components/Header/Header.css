@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0px 50px;
+    padding: 10px
 }
 
 .navbar .navbarLogo img{
@@ -18,7 +19,7 @@
 
 .navbarOption ul li a{
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 30px;
     /* color: #000; */
 }
 .navbarOption ul li a:hover{
@@ -34,7 +35,7 @@
 }
 .navbarOption .userNavbarImg{
     border: 1px solid crimson;
-    border-radius: 25px;
+    border-radius: 50%;
     margin-left: 20px;
     cursor: pointer;
 }

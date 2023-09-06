@@ -12,6 +12,7 @@ const SignUp = () => {
     const [userRegisterData, setUserRegisterData] = useState(defaultRegisterData);
     const navigation = useNavigate();
     const {registerUsingEmailAndPassword, error} = Usefirebase();
+    
 
 
     // handle user img 
@@ -25,8 +26,8 @@ const SignUp = () => {
             body: imgData,
         })
         const data = await res.json();
-        // console.log(data.data.url_viewer);
-        setUserRegisterData({image: data.data.url_viewer});
+    // console.log(data.data.display_url);
+        setUserRegisterData({image: data.data.display_url});
         // setImgLink(data.data.url_viewer);
         setImgUpload(true);
     }
@@ -46,6 +47,7 @@ const SignUp = () => {
             if(userRegisterData.password === userRegisterData.retypePassword){
                 // console.log(userRegisterData)
                 registerUsingEmailAndPassword(userRegisterData.email, userRegisterData.password, userRegisterData.image, userRegisterData.FirstName, userRegisterData.LastName, navigation);
+
                 e.target.reset();
             }else{
                 Swal.fire({

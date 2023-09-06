@@ -5,7 +5,7 @@ import {AiFillGithub} from 'react-icons/ai';
 import {FaFacebookF} from 'react-icons/fa';
 import Usefirebase from '../../../Hooks/Usefirebase';
 import bellyFoodLogo from '../../../Images/logo.png'
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 
 const SignIn = () => {
     const {loginWithEmailAndPassword, signInUsingGoogle, error} = Usefirebase();
@@ -23,8 +23,6 @@ const SignIn = () => {
     const handleSignInData = e => {
         e.preventDefault();
         loginWithEmailAndPassword(signInData.email, signInData.password, navigation, location);
-        Swal.fire("!LogIn", "LogIn Successfully😊", "success");
-        // console.log(signInData);
     }
     return (
         <div className='signUpContainer'>
