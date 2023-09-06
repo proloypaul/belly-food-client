@@ -82,7 +82,7 @@ const SignUp = () => {
                 </label>
                 
                 <div className='fullName'>
-                    <input className='name' type='text' placeholder='First Name' name="FirstName" required onBlur={collectRegisterData}/>
+                    <input className='name' type='text' placeholder='First Name' name="FirstName" required onBlur={collectRegisterData} style={{marginRight: "18px"}}/>
                     <input className='name' type='text' placeholder='Last Name' name="LastName" required onBlur={collectRegisterData}/>
                 </div>
                 <input className='commonInput' type='email' placeholder='abcd@gmail.com' name="email" required onBlur={collectRegisterData}/>
@@ -91,7 +91,7 @@ const SignUp = () => {
                 <p className='gender'>Gender</p>
                 <div className='genderInput'>
                     <input type='radio' name='gender' value='male' required onBlur={collectRegisterData}/>Male
-                    <input type='radio' name='gender' value='female' required onBlur={collectRegisterData}/>Female
+                    <input type='radio' name='gender' value='female' style={{marginLeft: "10px"}} required onBlur={collectRegisterData}/>Female
                 </div>
                 <p>Alreay Register to belly_Food <Link to='/signIn'>LogIn</Link></p>
                 <div className='formBtn'>

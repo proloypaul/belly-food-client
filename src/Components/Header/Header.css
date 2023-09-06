@@ -16,10 +16,12 @@
     justify-content: center;
     align-items: center;
 }
-
+.navbarOption ul li{
+    margin-left: 30px;
+}
 .navbarOption ul li a{
     text-decoration: none;
-    margin-left: 30px;
+    
     /* color: #000; */
 }
 .navbarOption ul li a:hover{
