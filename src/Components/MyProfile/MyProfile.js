@@ -4,7 +4,7 @@ import DashboardNav from './DashboardNav/DashboardNav';
 const MyProfile = () => {
     return (
         <>
-            <div style={{background: "#ff4284"}}>
+            <div  className='bg-gradient-to-r from-pink-500 to-purple-500'>
                 <DashboardNav/>
             </div>
         </>
