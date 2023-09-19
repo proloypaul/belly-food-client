@@ -12,22 +12,48 @@ const Carts = () => {
   const [cartsData, setCartsData] = useState([]);
   const [saveData, setSaveData] = useState({});
 
+  
   // reload page using program
-  if(!cartsData){
-    window.location.reload();
+  console.log("cart of food", cartsData.length)
+  if(cartsData.length === 0){
+    Swal.fire({
+      title: 'Click Only One Time To Get Your Cart?',
+      showDenyButton: true,
+      // showCancelButton: true,
+      confirmButtonText: 'Get Cart',
+      denyButtonText: `Don't Needed`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        // Swal.fire('Saved!', '', 'success')
+        window.location.reload()
+      } else if (result.isDenied) {
+        if(cartsData.length === 0 ){
+          Swal.fire('Sorry! Your Cart Is Empty! Now. Navigate Again & Click Get Cart', '', 'info')
+        }else{
+          Swal.fire('Wow! Now You Can Place Order', '', 'info')
+        }
+      }
+    })
   }
-  // console.log(user?.email);
+  
   //fetch carts data according to user email
-  useEffect(() => {
-    const url = `https://belly-food-server.vercel.app/carts/${user.email}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
-        setCartsData(data);
-      });
-  }, [user.email]);
+  try{
+    useEffect(() => {
+      const url = `https://belly-food-server.vercel.app/carts/${user.email}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          setCartsData(data);
+        });
+    }, [user.email]);
+  
+  }catch(error){
+    console.log(error)
 
+  }
+  
   //   set subtotal of food order
   let subtotal = 0;
   cartsData.map((cart) => {
