@@ -12,6 +12,23 @@ const Carts = () => {
   const [cartsData, setCartsData] = useState([]);
   const [saveData, setSaveData] = useState({});
 
+
+  //fetch carts data according to user email
+  try{
+    useEffect(() => {
+      const url = `https://belly-food-server.vercel.app/carts/${user.email}`;
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log(data);
+          setCartsData(data);
+        });
+    }, [user.email]);
+  
+  }catch(error){
+    console.log(error)
+
+  }
   
   // reload page using program
   console.log("cart of food", cartsData.length)
@@ -36,24 +53,7 @@ const Carts = () => {
       }
     })
   }
-  
-  //fetch carts data according to user email
-  try{
-    useEffect(() => {
-      const url = `https://belly-food-server.vercel.app/carts/${user.email}`;
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data);
-          setCartsData(data);
-        });
-    }, [user.email]);
-  
-  }catch(error){
-    console.log(error)
 
-  }
-  
   //   set subtotal of food order
   let subtotal = 0;
   cartsData.map((cart) => {

@@ -11,6 +11,10 @@ import Home from './Components/Home/Home';
 import SignIn from './Components/Registation/SignIn/SignIn';
 import SignUp from './Components/Registation/SignUp/SignUp';
 import Header from './Components/Header/Header';
+import MyProfile from './Components/MyProfile/MyProfile';
+import MyOrder from './Components/MyProfile/MyOrder/MyOrder';
+import ManageOrder from './Components/MyProfile/ManageOrder/ManageOrder';
+import EditProfile from './Components/MyProfile/EditProfile/EditProfile';
 
 function App() {
   return (
@@ -28,6 +32,13 @@ function App() {
             <Route path='breakfast' element={<Breakfast/>}/>
             <Route path='lunch' element={<Lunch/>}/>
             <Route path='dinner' element={<Dinner/>}/>
+          </Route>
+          {/* <Route path='/myProfile' element={<MyProfile/>}/> */}
+          {/* Dashboard routes */}
+          <Route path='myProfile/' element={<MyProfile/>}>
+            <Route path='myOrder' element={<MyOrder/>}/>
+            <Route path='manageOrder' element={<ManageOrder/>}/>
+            <Route path='editProfile' element={<EditProfile/>}/>
           </Route>
         </Routes>
         <Footer></Footer>

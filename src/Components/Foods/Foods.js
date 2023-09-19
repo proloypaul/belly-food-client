@@ -11,6 +11,7 @@ const Foods = () => {
                 <NavLink to="/dinner" activeclassName="active">Dinner</NavLink>
             </nav>
             <Outlet/>
+            
         </div>
     );
 };
