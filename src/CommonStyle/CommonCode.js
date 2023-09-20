@@ -23,11 +23,11 @@ export const CommonCodeOne = () => {
   };
 };
 
-// delete cart from mongoDB
+// delete single cart from mongoDB
 export const handleDltCart = (id, cartsData, setCartsData) => {
   Swal.fire({
     title: "Are You Sure!",
-    text: "It will be deleted also your history!",
+    text: "It will be deleted also your Database history!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -52,6 +52,18 @@ export const handleDltCart = (id, cartsData, setCartsData) => {
     }
   });
 };
+
+// delete an user all cart 
+export const handleUserCartDlt = (email) => {
+  console.log("email display form commonCode", email)
+  const url = `http://localhost:3600/carts/${email}`
+  fetch(url, {
+    method: "DELETE",
+  }).then((res) => res.json())
+    .then((data) => {
+      console.log("dlt resut of cart", data)
+    })
+}
 
 // handle increment button of foodnumber and price
 export const handleIncrementBtn = (

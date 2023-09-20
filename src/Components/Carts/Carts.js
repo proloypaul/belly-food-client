@@ -4,7 +4,7 @@ import { BsCartDash } from "react-icons/bs";
 import "./Carts.css";
 import Usefirebase from "../../Hooks/Usefirebase";
 import { Link } from "react-router-dom";
-import { handleDltCart } from "../../CommonStyle/CommonCode";
+import { handleDltCart, handleUserCartDlt } from "../../CommonStyle/CommonCode";
 import Swal from "sweetalert2";
 
 const Carts = () => {
@@ -31,32 +31,32 @@ const Carts = () => {
   }
   
   // reload page using program
-  console.log("cart of food", cartsData.length)
-  if(cartsData.length === 0){
-    Swal.fire({
-      title: 'Click Only One Time To Get Your Cart?',
-      showDenyButton: true,
-      // showCancelButton: true,
-      confirmButtonText: 'Get Cart',
-      denyButtonText: `Don't Needed`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        // Swal.fire('Saved!', '', 'success')
-        window.location.reload()
-      } else if (result.isDenied) {
-        if(cartsData.length === 0 ){
-          Swal.fire('Sorry! Your Cart Is Empty! Now. Navigate Again & Click Get Cart', '', 'info')
-        }else{
-          Swal.fire('Wow! Now You Can Place Order', '', 'info')
-        }
-      }
-    })
-  }
+  // console.log("cart of food", cartsData.length)
+  // if(cartsData.length === 0){
+  //   Swal.fire({
+  //     title: 'Click Only One Time To Get Your Cart?',
+  //     showDenyButton: true,
+  //     // showCancelButton: true,
+  //     confirmButtonText: 'Get Cart',
+  //     denyButtonText: `Don't Needed`,
+  //   }).then((result) => {
+  //     /* Read more about isConfirmed, isDenied below */
+  //     if (result.isConfirmed) {
+  //       // Swal.fire('Saved!', '', 'success')
+  //       window.location.reload()
+  //     } else if (result.isDenied) {
+  //       if(cartsData.length === 0 ){
+  //         Swal.fire('Sorry! Your Cart Is Empty! Now. Navigate Again & Click Get Cart', '', 'info')
+  //       }else{
+  //         Swal.fire('Wow! Now You Can Place Order', '', 'info')
+  //       }
+  //     }
+  //   })
+  // }
 
   //   set subtotal of food order
   let subtotal = 0;
-  cartsData.map((cart) => {
+  cartsData?.map((cart) => {
     const singleCartPrice = cart.price * cart.foodNum;
     subtotal = subtotal + parseInt(singleCartPrice);
     // return subtotal;
@@ -96,7 +96,10 @@ const Carts = () => {
         FlatAndFloor: saveData.FlatSuiteFloor,
         FoodItem: [...cartsData],
         subTotalPrice: subtotal,
-        totalPriceWithTaxAndDeliver: totalPriceWithTax
+        totalPriceWithTaxAndDeliver: totalPriceWithTax,
+        email: user?.email,
+        name: user?.name,
+        date: new Date().toLocaleDateString()
       }
       
       const url = `https://belly-food-server.vercel.app/orderinformation`;
@@ -111,7 +114,8 @@ const Carts = () => {
         .then((data) => {
           if (data.insertedId) {
             Swal.fire("!Well Done", "Order added Successfully", "success");
-            setCartsData([])
+            // setCartsData([])
+            handleUserCartDlt(user?.email)
           }
         })
         .catch((error) => {
@@ -217,7 +221,7 @@ const Carts = () => {
                     <button className="cartBtnOne">+</button>
                     <span className="cartItem">0{cart.foodNum}</span>
                     <button className="cartBtnOne">-</button>
-                    <p style={{ textAlign: "right" }}>
+                    <p className="pt-5 text-center">
                       <button
                         className="cartDltBtn"
                         onClick={
