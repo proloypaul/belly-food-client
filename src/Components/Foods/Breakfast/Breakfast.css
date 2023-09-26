@@ -17,6 +17,8 @@
 }
 .allFoods .foods{
     /* text-align: center; */
+    width: 90%;
+    height: 400px;
     margin-bottom: 20px;
     padding: 40px 20px;
     cursor: pointer;
