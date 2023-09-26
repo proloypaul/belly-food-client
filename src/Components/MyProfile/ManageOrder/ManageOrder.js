@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 // import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import {
@@ -10,14 +10,25 @@ import {
   Chip,
   CardFooter,
   Avatar,
-  IconButton,
-  Tooltip,
 } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
+import { RiDeleteBinFill } from 'react-icons/ri';
  
 
 const ManageOrder = () => {
-       
+    const [allOrderInfo, setAllOrderInfo] = useState([]);
+
+    useEffect(() => {
+        const url = `http://localhost:3600/orderinformation`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data)
+                setAllOrderInfo(data)
+            })
+    }, [])
+
+    console.log('allOrderinfo', allOrderInfo)
       const TABLE_HEAD = ["Ordered", "Location", "Date", "Quantity", ""];
        
       const TABLE_ROWS = [
@@ -180,11 +191,9 @@ const ManageOrder = () => {
                                 </Typography>
                                 </td>
                                 <td className={classes}>
-                                <Tooltip content="Edit User">
-                                    <IconButton variant="text">
-                                    {/* <PencilIcon className="h-4 w-4" /> */}
-                                    </IconButton>
-                                </Tooltip>
+                                    <button className='cartDltBtn'>
+                                        <RiDeleteBinFill />
+                                    </button>
                                 </td>
                             </tr>
                             );

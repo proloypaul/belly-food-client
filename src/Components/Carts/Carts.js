@@ -3,7 +3,7 @@ import { RiDeleteBinFill } from "react-icons/ri";
 import { BsCartDash } from "react-icons/bs";
 import "./Carts.css";
 import Usefirebase from "../../Hooks/Usefirebase";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { handleDltCart, handleUserCartDlt } from "../../CommonStyle/CommonCode";
 import Swal from "sweetalert2";
 
@@ -11,12 +11,12 @@ const Carts = () => {
   const { user } = Usefirebase();
   const [cartsData, setCartsData] = useState([]);
   const [saveData, setSaveData] = useState({});
-
+  const navigate = useNavigate()
 
   //fetch carts data according to user email
   try{
     useEffect(() => {
-      const url = `https://belly-food-server.vercel.app/carts/${user.email}`;
+      const url = `https://belly-food-server.onrender.com/carts/${user.email}`;
       fetch(url)
         .then((res) => res.json())
         .then((data) => {
@@ -98,11 +98,11 @@ const Carts = () => {
         subTotalPrice: subtotal,
         totalPriceWithTaxAndDeliver: totalPriceWithTax,
         email: user?.email,
-        name: user?.name,
+        name: user?.displayName,
         date: new Date().toLocaleDateString()
       }
       
-      const url = `https://belly-food-server.vercel.app/orderinformation`;
+      const url = `https://belly-food-server.onrender.com/orderinformation`;
       fetch(url, {
         method: "POST",
         headers: {
@@ -116,6 +116,7 @@ const Carts = () => {
             Swal.fire("!Well Done", "Order added Successfully", "success");
             // setCartsData([])
             handleUserCartDlt(user?.email)
+            navigate("/myProfile")
           }
         })
         .catch((error) => {

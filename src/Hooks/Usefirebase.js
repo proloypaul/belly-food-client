@@ -67,7 +67,7 @@ const Usefirebase = () => {
                 });
 
                 navigation('/');
-                Swal.fire("!Register", "You Are Successfully Register😊", "success");
+                Swal.fire("!Register Successfully", "Welcome To Our belly_food😊", "success");
                 setError("");
             }).catch(error => {
                 setError(error.message);
@@ -84,7 +84,7 @@ const Usefirebase = () => {
                 setError('')
                 Swal.fire(
                     '!WelCome',
-                    'Login Successfully',
+                    'Now You Can Place Your Food',
                     'success'
                   )
                 const destination = location?.state?.from || '/';
@@ -110,7 +110,7 @@ const Usefirebase = () => {
     const saveUserToDb = (name, email, image, method) => {
         const usersData = {name, email, image};
         // console.log(usersData);
-        const url = `https://belly-food-server.vercel.app/users`;
+        const url = `https://belly-food-server.onrender.com/users`;
         fetch(url, {
             method: method,
             headers: {

@@ -7,7 +7,7 @@ export const CommonCodeOne = () => {
   
   useEffect(() => {
     setLoader(true)
-    const url = `https://belly-food-server.vercel.app/foods`;
+    const url = `https://belly-food-server.onrender.com/foods`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -35,7 +35,7 @@ export const handleDltCart = (id, cartsData, setCartsData) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      const url = `https://belly-food-server.vercel.app/carts/${id}`;
+      const url = `https://belly-food-server.onrender.com/carts/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -53,16 +53,50 @@ export const handleDltCart = (id, cartsData, setCartsData) => {
   });
 };
 
+// delete single order from mongoDB
+export const handleDltOrder = (id, orderInfo, setOrderInfo) => {
+  Swal.fire({
+    title: "Are You Sure!",
+    text: "It will be deleted also your Database history!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const url = `http://localhost:3600/orderinformation/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("deleted order Data", data)
+          if (data.deletedCount > 0) {
+            const withOutDeletedCart = orderInfo.filter(
+              (carts) => carts._id !== id
+            );
+            setOrderInfo(withOutDeletedCart);
+            Swal.fire("Deleted!", "Your file cart been deleted.", "success");
+          }
+        });
+    }
+  });
+};
+
 // delete an user all cart 
 export const handleUserCartDlt = (email) => {
   console.log("email display form commonCode", email)
   const url = `http://localhost:3600/carts/${email}`
   fetch(url, {
     method: "DELETE",
-  }).then((res) => res.json())
+  })
+    .then((res) => res.json())
     .then((data) => {
-      console.log("dlt resut of cart", data)
-    })
+      if (data.deletedCount > 0) {
+        console.log("deleted all carts", data)
+      }
+    });
 }
 
 // handle increment button of foodnumber and price

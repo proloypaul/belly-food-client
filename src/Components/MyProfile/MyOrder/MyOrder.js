@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { Card, Typography } from "@material-tailwind/react";
 import Usefirebase from '../../../Hooks/Usefirebase';
 import { Link } from 'react-router-dom';
+import { RiDeleteBinFill } from 'react-icons/ri';
+import { handleDltOrder } from '../../../CommonStyle/CommonCode';
  
 
 const MyOrder = () => {
     const [orderInfo, setOrderInfo] = useState([]);
     const {user} = Usefirebase()
-    const TABLE_HEAD = ["Name", "Email", "Date", "Location", "TotalPrice", ""];
+    const TABLE_HEAD = ["Food Name", "Email", "Date", "Location", "Total Food", "TotalPrice", ""];
 
     useEffect(() => {
-        const url = `http://localhost:3600/orderinformation/${user?.email}`;
+        const url = `https://belly-food-server.onrender.com/orderinformation/${user?.email}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 setOrderInfo(data)
             })
     }, [user?.email])
 
-    console.log("orderInfo ",orderInfo.length)    
+    // console.log("orderInfo ",orderInfo.length)    
     return (
         <div className='pl-10'>
             <div>
@@ -44,8 +46,10 @@ const MyOrder = () => {
                         {orderInfo.map( info => (
                             <tr key={info._id} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
-                                <Typography variant="small" color="blue-gray" className="font-normal">
-                                {info.name}
+                                <Typography variant="small" color="blue-gray" className="">
+                                {info.FoodItem.map(food => <div>
+                                    <p>{food.name}</p>
+                                </div>)}
                                 </Typography>
                             </td>
                             <td className="p-4">
@@ -59,8 +63,16 @@ const MyOrder = () => {
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
+                                <Typography variant="small" color="blue-gray" className="font-medium">
                                 {info.location}
+                                </Typography>
+                                <Typography variant="small" color="blue-gray" className="font-medium">
+                                {info.FlatAndFloor}
+                                </Typography>
+                            </td>
+                            <td className="p-4">
+                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium text-center">
+                                {info.FoodItem.length}
                                 </Typography>
                             </td>
                             <td className="p-4">
@@ -69,9 +81,9 @@ const MyOrder = () => {
                                 </Typography>
                             </td>
                             <td className="p-4">
-                                <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                                Delete
-                                </Typography>
+                                <button   className="cartDltBtn" onClick={() => handleDltOrder(info._id, orderInfo, setOrderInfo)}>
+                                <RiDeleteBinFill/>
+                                </button>
                             </td>
                             </tr>
                         ))}
