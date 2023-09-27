@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+// import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+// import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
 import {
   Card,
   CardHeader,
@@ -11,12 +13,22 @@ import {
 } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 import { RiDeleteBinFill } from 'react-icons/ri';
-import { LoadRegisteredUserOrder } from '../../../CommonStyle/CommonCode';
  
 
 const ManageOrder = () => {
-    const {orderInfo} = LoadRegisteredUserOrder()
-    console.log('allOrderinfo', orderInfo)
+    const [allOrderInfo, setAllOrderInfo] = useState([]);
+
+    useEffect(() => {
+        const url = `https://belly-food-server.onrender.com/orderinformation`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => {
+                // console.log(data)
+                setAllOrderInfo(data)
+            })
+    }, [])
+
+    console.log('allOrderinfo', allOrderInfo)
       const TABLE_HEAD = ["Ordered", "Location", "Date", "Quantity", ""];
        
       const TABLE_ROWS = [

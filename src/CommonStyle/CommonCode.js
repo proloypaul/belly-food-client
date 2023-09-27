@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import Usefirebase from "../Hooks/Usefirebase";
+
 
 export const CommonCodeOne = () => {
   const [foodsData, setFoodsData] = useState([]);
@@ -22,6 +24,33 @@ export const CommonCodeOne = () => {
     loader
   };
 };
+
+// fetch only registered user order
+export const LoadRegisteredUserOrder = () => {
+
+  const [orderInfo, setOrderInfo] = useState([]);
+  const [loader, setLoader] = useState(false)
+  const {user} = Usefirebase()
+
+  useEffect(() => {
+    setLoader(true)
+    const url = `https://belly-food-server.onrender.com/orderinformation/${user?.email}`;
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+            // console.log(data)
+            setOrderInfo(data)
+            setLoader(false)
+        })
+  }, [user?.email])
+
+  return{
+    orderInfo,
+    loader,
+    setOrderInfo
+  }
+
+}
 
 // delete single cart from mongoDB
 export const handleDltCart = (id, cartsData, setCartsData) => {
@@ -65,7 +94,7 @@ export const handleDltOrder = (id, orderInfo, setOrderInfo) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      const url = `http://localhost:3600/orderinformation/${id}`;
+      const url = `https://belly-food-server.onrender.com/orderinformation/${id}`;
       fetch(url, {
         method: "DELETE",
       })

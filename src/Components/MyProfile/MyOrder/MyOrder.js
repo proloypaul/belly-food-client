@@ -1,29 +1,17 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 import { Card, Typography } from "@material-tailwind/react";
-import Usefirebase from '../../../Hooks/Usefirebase';
+// import Usefirebase from '../../../Hooks/Usefirebase';
 import { Link } from 'react-router-dom';
 import { RiDeleteBinFill } from 'react-icons/ri';
-import { handleDltOrder } from '../../../CommonStyle/CommonCode';
+import { LoadRegisteredUserOrder, handleDltOrder } from '../../../CommonStyle/CommonCode';
  
 
 const MyOrder = () => {
-    const [orderInfo, setOrderInfo] = useState([]);
-    const {user} = Usefirebase()
+    const {orderInfo, setOrderInfo} = LoadRegisteredUserOrder()
     const TABLE_HEAD = ["Food Name", "Email", "Date", "Location", "Total Food", "TotalPrice", ""];
 
-    useEffect(() => {
-        const url = `https://belly-food-server.onrender.com/orderinformation/${user?.email}`;
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => {
-                // console.log(data)
-                setOrderInfo(data)
-            })
-    }, [user?.email])
-
-    // console.log("orderInfo ",orderInfo.length)    
     return (
-        <div className='pl-10'>
+        <div className='pl-10 py-10'>
             <div>
                 {orderInfo.length !== 0? <Card className="h-full w-full overflow-scroll">
                     <table className="w-full min-w-max table-auto text-left">
@@ -96,6 +84,7 @@ const MyOrder = () => {
                             <Link to="/allFood" className='commonButtonTwo mr-5'>Order Now</Link>
                             <Link to="/allFood">Find Food</Link>
                         </div>
+                        <p>If You have any Order. Don't Forgot To <button className="commonButtonTwo" onClick={() => window.location.reload()}>Refresh</button> The Page</p>
                     </div>
                     </div>}
             </div>

@@ -107,6 +107,7 @@
   border: 0;
   border-radius: 5px;
   text-align: center;
+  width: 100%;
 }
 .noCarts .noCartsTitleOne {
   color: #000;

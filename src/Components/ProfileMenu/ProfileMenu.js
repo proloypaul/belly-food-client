@@ -64,9 +64,9 @@ import { Link } from "react-router-dom";
                 d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
               />
             </svg>
-            <Typography variant="small" className="font-normal">
+            <Link to="/myProfile/editProfile" variant="small" className="font-normal">
               Edit Profile
-            </Typography>
+            </Link>
           </MenuItem>
           <MenuItem className="flex items-center gap-2">
             <svg

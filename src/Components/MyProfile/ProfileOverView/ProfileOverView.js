@@ -14,7 +14,7 @@ const ProfileOverView = () => {
     // const [profileData, setProfileData] = useState(profileOverViewData)
     return (
         <>
-        <div className='pl-5'>
+        <div className='py-10'>
             <div style={{textAlign: "center"}}>
                 <Avatar src={user?.photoURL} alt="avatar" size="xxl" />
                 <Link to="/myProfile/editProfile" className='text-white pl-5' >Edit</Link>

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { RiDeleteBinFill } from "react-icons/ri";
-import { BsCartDash } from "react-icons/bs";
 import "./Carts.css";
 import Usefirebase from "../../Hooks/Usefirebase";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { handleDltCart, handleUserCartDlt } from "../../CommonStyle/CommonCode";
 import Swal from "sweetalert2";
 
@@ -194,7 +193,7 @@ const Carts = () => {
           <p>
             From <span className="cartTitleOne">Tejgong Restaurant GPR</span>{" "}
           </p>
-          <p className="cartTitleTwo">
+          <p className="cartTitleTwo py-2">
             Arriving in <span className="cartTitleOne">20-30 min</span>
           </p>
           <p className="cartTitleThree">
@@ -236,29 +235,25 @@ const Carts = () => {
                 </div>
               ))
             ) : (
-              <div className="noCarts">
-                {/* <p className='noCartsTitleOne'>Hey, Checkout our Delicious Foods</p>
-                            <p className='noCartsTitleOne'>& don't forgat to Add To Carts</p> */}
-                <Link to="/allFood">
-                  <button className="deliciousBtn">
-                    <BsCartDash /> Add To Cart
-                  </button>
-                </Link>
+              <div className="noCarts  py-10 my-10">
+                <p className='noCartsTitleOne'>Hey, Checkout our Delicious Foods</p>
+                <p className='noCartsTitleOne py-2'>&</p>
+                <p className='noCartsTitleOne'>If {"  "} You Added any Order?. Don't Forgat To <button className="commonButtonTwo">Refresh</button> The Page</p>
               </div>
             )}
           </div>
           <div className="cartAmount">
             <div className="cartAmountTitle">
               <p>Subtotal: </p>
-              <p>Delivery free: </p>
+              <p className="py-2">Delivery free: </p>
               <p>Tax: </p>
-              <p>Total: </p>
+              <p className="pt-2">Total: </p>
             </div>
             <div className="cartAmountTitleValue">
               <p>$ {subtotal}</p>
-              <p>$ 1</p>
+              <p className="py-2">$ 1</p>
               <p>$ {taxAmount}</p>
-              <p>$ {totalPriceWithTax}</p>
+              <p className="pt-2">$ {totalPriceWithTax}</p>
             </div>
           </div>
           <button className="checkoutFoodBtn" onClick={handlePlaceOrder}>

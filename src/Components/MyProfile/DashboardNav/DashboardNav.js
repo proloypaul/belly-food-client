@@ -17,12 +17,12 @@ const DashboardNav = () => {
                 <div>
                     <nav className='grid grid-cols-4 dashboardNav'>
                         <div className='navOptions'>
-                            <div className="flex items-center gap-4 pb-5">
+                            <Link to="/myProfile/profileOverView" className="flex items-center gap-4 pb-5">
                                 <Avatar src={user?.photoURL} alt="Empty!" withBorder={true} className="p-0.5"/>
                                 <div>
                                     <Typography variant="h6" style={{color: "white"}}>{user.displayName}</Typography>
                                 </div>
-                            </div>
+                            </Link>
                             <ul onClick={() => setDisplayOverView(true)}>
                                 <li><Link to="/myProfile/profileOverView">Profile OverView</Link></li>
                                 <li><Link to="/myProfile/myOrder">My Order</Link></li>
