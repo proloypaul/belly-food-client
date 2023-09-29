@@ -3,6 +3,7 @@ import {ImArrowUpRight2} from 'react-icons/im'
 import './Categories.css';
 import categoriesPicOne from '../../../Images/categoriesPicOne.png';
 import categoriesPicTwo from '../../../Images/categoriesPicTwo.png';
+import categoriesPicFour from '../../../Images/overViewPicFour.png';
 import { Link } from 'react-router-dom';
 
 const Categories = () => {
@@ -48,7 +49,7 @@ const Categories = () => {
                     <p>We understand that every event is unique, and we work closely with you to customize out catering menu to suit your specific needs</p>
                 </div>
                 <div>
-                    <img src={categoriesPicTwo} alt='Empty!' width='400px' height='300px'/>
+                    <img src={categoriesPicFour} alt='Empty!' width='400px' height='300px'/>
                 </div>
                 <div className='p-10 text-white bg-black rounded-full'>
                     <Link to="/allFood">Explore <br/> More</Link>

@@ -6,6 +6,8 @@ import navLogo from "../../Images/logo.png";
 import Usefirebase from '../../Hooks/Usefirebase';
 import fackProfileImg from "../../Images/fackProfile.webp";
 import { ProfileMenu } from '../ProfileMenu/ProfileMenu';
+import {BiSearchAlt2} from 'react-icons/bi'
+
 const Header = () => {
     const {user, signOutProcess} = Usefirebase()
     return (
@@ -14,6 +16,9 @@ const Header = () => {
                 <Link to="/" className='navbarLogo'>
                     <img src={navLogo} alt='Empty!'/>
                 </Link>
+                <div>
+                    <p className='text-2xl p-2 border-0 rounded-full text-white' style={{background: "crimson"}}><BiSearchAlt2/></p>
+                </div>
                 <div className='navbarOption'>
                     <ul>
                         <li><Link to="/carts" className='flex items-center'><BsCartDash/> Carts</Link></li>
