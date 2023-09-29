@@ -28,6 +28,7 @@ const DashboardNav = () => {
                                 <li><Link to="/myProfile/myOrder">My Order</Link></li>
                                 <li><Link to="/myProfile/manageOrder">Manage Order</Link></li>
                                 <li><Link to="/myProfile/editProfile">Edit Profile</Link></li>
+                                <li><Link to="/myProfile/review">Review</Link></li>
                                 {/* <li><Link to="/myProfile/makeAdmin">Make Admin</Link></li> */}
                             </ul>
                         </div>

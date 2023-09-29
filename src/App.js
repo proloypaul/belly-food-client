@@ -16,6 +16,7 @@ import MyOrder from './Components/MyProfile/MyOrder/MyOrder';
 import ManageOrder from './Components/MyProfile/ManageOrder/ManageOrder';
 import EditProfile from './Components/MyProfile/EditProfile/EditProfile';
 import ProfileOverView from './Components/MyProfile/ProfileOverView/ProfileOverView';
+import Review from './Components/MyProfile/UserReview/Review';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path='manageOrder' element={<ManageOrder/>}/>
             <Route path='editProfile' element={<EditProfile/>}/>
             <Route path='profileOverView' element={<ProfileOverView/>}/>
+            <Route path='review' element={<Review/>}/>
           </Route>
         </Routes>
         <Footer></Footer>

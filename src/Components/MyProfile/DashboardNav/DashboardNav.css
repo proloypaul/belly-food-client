@@ -1,7 +1,4 @@
-/* .dashboardNav{
-    background-color: black;
-    color: white;
-} */
+
 .dashboardNav .navOptions{
     padding: 40px 0px;
     border-right: 3px solid lightgray;
@@ -24,3 +21,18 @@
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
+
+/* design of Review section */
+.reviewForm{
+    width: 50%;
+}
+.reviewForm input, textarea{
+    background-color: gainsboro;
+    color: black;
+    padding: 12px 10px;
+    margin: 5px 0px;
+    width: 100%;
+    /* border: 2px solid black; */
+    border-radius: 10px;
+}
+
