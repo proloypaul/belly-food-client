@@ -5,67 +5,19 @@ import {
   Typography,
   Button,
   CardBody,
-  Chip,
   CardFooter,
   Avatar,
 } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 import { RiDeleteBinFill } from 'react-icons/ri';
-import { LoadRegisteredUserOrder } from '../../../CommonStyle/CommonCode';
+import { LoadRegisteredUserOrder, handleDltOrder } from '../../../CommonStyle/CommonCode';
  
 
 const ManageOrder = () => {
-    const {orderInfo} = LoadRegisteredUserOrder()
-    console.log('allOrderinfo', orderInfo)
-      const TABLE_HEAD = ["Ordered", "Location", "Date", "Quantity", ""];
+    const {orderInfo, setOrderInfo} = LoadRegisteredUserOrder()
+    const TABLE_HEAD = ["Ordered", "Location", "Date", "Delivery To", ""];
        
-      const TABLE_ROWS = [
-        {
-          img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg",
-          name: "John Michael",
-          email: "john@creative-tim.com",
-          job: "Manager",
-          org: "Organization",
-          online: true,
-          date: "23/04/18",
-        },
-        {
-          img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg",
-          name: "Alexa Liras",
-          email: "alexa@creative-tim.com",
-          job: "Programator",
-          org: "Developer",
-          online: false,
-          date: "23/04/18",
-        },
-        {
-          img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-1.jpg",
-          name: "Laurent Perrier",
-          email: "laurent@creative-tim.com",
-          job: "Executive",
-          org: "Projects",
-          online: false,
-          date: "19/09/17",
-        },
-        {
-          img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-4.jpg",
-          name: "Michael Levi",
-          email: "michael@creative-tim.com",
-          job: "Programator",
-          org: "Developer",
-          online: true,
-          date: "24/12/08",
-        },
-        {
-          img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-5.jpg",
-          name: "Richard Gran",
-          email: "richard@creative-tim.com",
-          job: "Manager",
-          org: "Executive",
-          online: false,
-          date: "04/10/21",
-        },
-      ];
+      
     return (
         <div className='pl-5'>
             <Card className="h-full w-full">
@@ -111,98 +63,97 @@ const ManageOrder = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {TABLE_ROWS.map(
-                        ({ img, name, email, job, org, online, date }, index) => {
-                            const isLast = index === TABLE_ROWS.length - 1;
+                        {orderInfo?.map((order, index) => {
+                            const isLast = index === orderInfo.length - 1;
                             const classes = isLast
-                            ? "p-4"
-                            : "p-4 border-b border-blue-gray-50";
-            
+                              ? "p-4"
+                              : "p-4 border-b border-blue-gray-50";
                             return (
-                            <tr key={name}>
-                                <td className={classes}>
-                                <div className="flex items-center gap-3">
-                                    <Avatar src={img} alt={name} size="sm" />
+                                <tr key={order._id}>
+                                    <td className={classes}>
+                                        {order.FoodItem.map(food => (
+                                            <div className="flex items-center gap-3">
+                                                <Avatar src={food.image} alt={"Empty!"} size="sm" />
+                                                <div className="flex flex-col">
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal"
+                                                    >
+                                                        {food.name}
+                                                    </Typography>
+                                                    <Typography
+                                                        variant="small"
+                                                        color="blue-gray"
+                                                        className="font-normal opacity-70"
+                                                    >
+                                                        Order: {food.foodNum}
+                                                    </Typography>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </td>
+                                    <td className={classes}>
                                     <div className="flex flex-col">
+                                        <Typography
+                                        variant="small"
+                                        color="blue-gray"
+                                        className="font-normal"
+                                        >
+                                        {order.location}
+                                        </Typography>
+                                        {/* <Typography
+                                        variant="small"
+                                        color="blue-gray"
+                                        className="font-normal opacity-70"
+                                        >
+                                        {org}
+                                        </Typography> */}
+                                    </div>
+                                    </td>
+                                    <td className={classes}>
+                                    <div className="w-max">
+                                        <Typography
+                                        variant="small"
+                                        color="blue-gray"
+                                        className="font-normal"
+                                        >
+                                        {order.date}
+                                        </Typography>
+                                    </div>
+                                    </td>
+                                    <td className={classes}>
                                     <Typography
                                         variant="small"
                                         color="blue-gray"
                                         className="font-normal"
                                     >
-                                        {name}
+                                        {order.DeliveryTo}
                                     </Typography>
-                                    <Typography
-                                        variant="small"
-                                        color="blue-gray"
-                                        className="font-normal opacity-70"
-                                    >
-                                        {email}
-                                    </Typography>
-                                    </div>
-                                </div>
-                                </td>
-                                <td className={classes}>
-                                <div className="flex flex-col">
-                                    <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="font-normal"
-                                    >
-                                    {job}
-                                    </Typography>
-                                    <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="font-normal opacity-70"
-                                    >
-                                    {org}
-                                    </Typography>
-                                </div>
-                                </td>
-                                <td className={classes}>
-                                <div className="w-max">
-                                    <Chip
-                                    variant="ghost"
-                                    size="sm"
-                                    value={online ? "online" : "offline"}
-                                    color={online ? "green" : "blue-gray"}
-                                    />
-                                </div>
-                                </td>
-                                <td className={classes}>
-                                <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="font-normal"
-                                >
-                                    {date}
-                                </Typography>
-                                </td>
-                                <td className={classes}>
-                                    <button className='cartDltBtn'>
-                                        <RiDeleteBinFill />
-                                    </button>
-                                </td>
-                            </tr>
-                            );
-                        },
-                        )}
+                                    </td>
+                                    <td className={classes}>
+                                        <button   className="cartDltBtn" onClick={() => handleDltOrder(order._id, orderInfo, setOrderInfo)}>
+                                            <RiDeleteBinFill/>
+                                        </button>
+                                    </td>
+                                </tr>
+                            )})}
                     </tbody>
                     </table>
-                </CardBody>
-                <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
-                    <Typography variant="small" color="blue-gray" className="font-normal">
-                    Page 1 of 10
-                    </Typography>
-                    <div className="flex gap-2">
-                    <Button variant="outlined" size="sm">
-                        Previous
-                    </Button>
-                    <Button variant="outlined" size="sm">
-                        Next
-                    </Button>
-                    </div>
-                </CardFooter>
+                    </CardBody>
+                    <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
+                        <Typography variant="small" color="blue-gray" className="font-normal">
+                        Page 1 of 10
+                        </Typography>
+                        <div className="flex gap-2">
+                        <Button variant="outlined" size="sm">
+                            Previous
+                        </Button>
+                        <Button variant="outlined" size="sm">
+                            Next
+                        </Button>
+                        </div>
+                    </CardFooter>
             </Card>
         </div>
     );

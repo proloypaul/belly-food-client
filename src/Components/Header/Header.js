@@ -17,7 +17,7 @@ const Header = () => {
                     <img src={navLogo} alt='Empty!'/>
                 </Link>
                 <div>
-                    <p className='text-2xl p-2 border-0 rounded-full text-white' style={{background: "crimson"}}><BiSearchAlt2/></p>
+                    <p className='text-2xl p-2 border-0 rounded-full text-white cursor-pointer' style={{background: "crimson"}}><BiSearchAlt2/></p>
                 </div>
                 <div className='navbarOption'>
                     <ul>

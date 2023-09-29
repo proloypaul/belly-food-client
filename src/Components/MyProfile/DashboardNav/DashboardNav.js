@@ -20,7 +20,7 @@ const DashboardNav = () => {
                             <Link to="/myProfile/profileOverView" className="flex items-center gap-4 pb-5">
                                 <Avatar src={user?.photoURL} alt="Empty!" withBorder={true} className="p-0.5"/>
                                 <div>
-                                    <Typography variant="h6" style={{color: "white"}}>{user.displayName}</Typography>
+                                    <Typography variant="h6" style={{color: "crimson"}}>{user.displayName}</Typography>
                                 </div>
                             </Link>
                             <ul onClick={() => setDisplayOverView(true)}>

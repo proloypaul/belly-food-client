@@ -1,14 +1,11 @@
-// import React, { useEffect, useState } from 'react';
-import { Card, Typography } from "@material-tailwind/react";
-// import Usefirebase from '../../../Hooks/Usefirebase';
+import { Avatar, Card, Typography } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
-import { RiDeleteBinFill } from 'react-icons/ri';
-import { LoadRegisteredUserOrder, handleDltOrder } from '../../../CommonStyle/CommonCode';
+import { LoadRegisteredUserOrder } from '../../../CommonStyle/CommonCode';
  
 
 const MyOrder = () => {
-    const {orderInfo, setOrderInfo} = LoadRegisteredUserOrder()
-    const TABLE_HEAD = ["Food Name", "Email", "Date", "Location", "Total Food", "TotalPrice", ""];
+    const {orderInfo} = LoadRegisteredUserOrder()
+    const TABLE_HEAD = ["Food Name", "Date", "Location", "Delivery To", "Total Order", "TotalPrice", ""];
 
     return (
         <div className='pl-10 py-10'>
@@ -21,8 +18,8 @@ const MyOrder = () => {
                             <th key={head} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                                 <Typography
                                 variant="small"
-                                color="blue-gray"
-                                className="font-normal leading-none opacity-70"
+                                style={{color: "crimson"}}
+                                className="font-bold text-xl font-serif leading-none opacity-70 "
                                 >
                                 {head}
                                 </Typography>
@@ -34,16 +31,27 @@ const MyOrder = () => {
                         {orderInfo.map( info => (
                             <tr key={info._id} className="even:bg-blue-gray-50/50">
                             <td className="p-4">
-                                <Typography variant="small" color="blue-gray" className="">
-                                {info.FoodItem.map(food => <div>
-                                    <p>{food.name}</p>
-                                </div>)}
-                                </Typography>
-                            </td>
-                            <td className="p-4">
-                                <Typography variant="small" color="blue-gray" className="font-normal">
-                                {info.email}
-                                </Typography>
+                                {info.FoodItem.map(food => (
+                                    <div className="flex items-center gap-3">
+                                        <Avatar src={food.image} alt={"Empty!"} size="sm" />
+                                        <div className="flex flex-col">
+                                            <Typography
+                                                variant="small"
+                                                color="blue-gray"
+                                                className="font-normal"
+                                            >
+                                                {food.name}
+                                            </Typography>
+                                            <Typography
+                                                variant="small"
+                                                color="blue-gray"
+                                                className="font-normal opacity-70"
+                                            >
+                                                Order: {food.foodNum}
+                                            </Typography>
+                                        </div>
+                                    </div>
+                                ))}
                             </td>
                             <td className="p-4">
                                 <Typography variant="small" color="blue-gray" className="font-normal">
@@ -59,25 +67,26 @@ const MyOrder = () => {
                                 </Typography>
                             </td>
                             <td className="p-4">
+                                <Typography variant="small" color="blue-gray" className="font-medium">
+                                {info.DeliveryTo}
+                                </Typography>
+                            </td>
+                            <td className="p-4">
                                 <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium text-center">
-                                {info.FoodItem.length}
+                                {/* {info.FoodItem.length} */}
+                                {info.FoodItem.map(food => `${food.foodNum}, `)}
                                 </Typography>
                             </td>
                             <td className="p-4">
                                 <Typography as="a" href="#" variant="small" color="blue-gray" className="font-medium">
-                                {info.totalPriceWithTaxAndDeliver}
+                                $.{info.totalPriceWithTaxAndDeliver}
                                 </Typography>
-                            </td>
-                            <td className="p-4">
-                                <button   className="cartDltBtn" onClick={() => handleDltOrder(info._id, orderInfo, setOrderInfo)}>
-                                <RiDeleteBinFill/>
-                                </button>
                             </td>
                             </tr>
                         ))}
                         </tbody>
                     </table>
-                </Card> : <div className="text-white flex justify-center items-center font-serif">
+                </Card> : <div className="text-black flex justify-center items-center font-serif">
                     <div>
                         <h1 className='py-5 text-4xl font-bold'>Let's GO To Order Now</h1>
                         <div className='pb-5 text-center'>
