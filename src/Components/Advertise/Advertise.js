@@ -25,17 +25,14 @@ const advertiseData = [
     },
 ]
 
-// https://ibb.co/FKQ2L4R
-// https://ibb.co/DpGKyRn
-// https://ibb.co/yRbTsfk
-// https://ibb.co/JtDR769
-// https://ibb.co/HNnzDs1
 const Advertise = () => {
     return (
         <div className='advertiseContainer'>
             <p className='advertiseTitle'>Why you choose us</p>
             <p className='advertiseMsg'>Barton waited twenty always repair in within we do. An delighted offending curiosity my dashwoods at.Boy prosperous increasing surrounded.
             </p>
+            <div>
+            </div>
             <div className='advertiseBoxes'>
                 {advertiseData.map(advertise => <div key={advertise.id} className="advertiseBox">
                     <img src={advertise.img} alt="Empty!" width="300px" height="250px"/>

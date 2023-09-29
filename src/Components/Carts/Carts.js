@@ -238,7 +238,7 @@ const Carts = () => {
               <div className="noCarts  py-10 my-10">
                 <p className='noCartsTitleOne'>Hey, Checkout our Delicious Foods</p>
                 <p className='noCartsTitleOne py-2'>&</p>
-                <p className='noCartsTitleOne'>If {"  "} You Added any Order?. Don't Forgat To <button className="commonButtonTwo">Refresh</button> The Page</p>
+                <p className='noCartsTitleOne'>If {"  "} You Added any Order?. Don't Forgat To <button className="commonButtonTwo" onClick={() => window.location.reload()}>Refresh</button> The Page</p>
               </div>
             )}
           </div>

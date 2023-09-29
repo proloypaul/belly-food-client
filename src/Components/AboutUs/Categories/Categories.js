@@ -42,6 +42,18 @@ const Categories = () => {
                     <img src={categoriesPicTwo} alt='Empty!' width='300px' height='300px'/>
                 </div>
             </div>
+
+            <div className='flex items-center justify-around py-10'>
+                <div className='w-64 font-serif font-bold'>
+                    <p>We understand that every event is unique, and we work closely with you to customize out catering menu to suit your specific needs</p>
+                </div>
+                <div>
+                    <img src={categoriesPicTwo} alt='Empty!' width='400px' height='300px'/>
+                </div>
+                <div className='p-10 text-white bg-black rounded-full'>
+                    <Link to="/allFood">Explore <br/> More</Link>
+                </div>
+            </div>
         </div>
     );
 };
