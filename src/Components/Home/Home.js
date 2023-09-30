@@ -6,6 +6,7 @@ import Foods from '../Foods/Foods';
 import OverView from '../AboutUs/OverView/OverView';
 import Categories from '../AboutUs/Categories/Categories';
 import LatestFood from '../LatestFood/LatestFood';
+import DisplayUserReview from '../DisplayUserReview/DisplayUserReview';
 // import Usefirebase from '../../Hooks/Usefirebase';
 
 
@@ -22,6 +23,7 @@ const Home = () => {
             <Breakfast></Breakfast>
             <Categories></Categories>
             <LatestFood></LatestFood>
+            <DisplayUserReview></DisplayUserReview>
             <Advertise></Advertise>
         </div>
     );

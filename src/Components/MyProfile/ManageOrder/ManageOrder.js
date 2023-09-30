@@ -155,6 +155,9 @@ const ManageOrder = () => {
                         </div>
                     </CardFooter>
             </Card>
+            <div>
+            <p className='pt-10'>If You have any Order. Don't Forgot To <button className="commonButtonTwo" onClick={() => window.location.reload()}>Refresh</button> The Page</p>
+            </div>
         </div>
     );
 };

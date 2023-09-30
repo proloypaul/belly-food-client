@@ -41,7 +41,7 @@ const Advertise = () => {
                         <div>
                             <p className='advertiseName'>{advertise.name}</p>    
                             <p className='advertiseDescription'>{advertise.describe}</p>
-                            <Link to="/allFood" className='advertiseSeeMore'>see More <span className='seeMoreIcon'><AiOutlineArrowRight/></span></Link>
+                            <Link to="/allFood" className='advertiseSeeMore flex items-center'>see More <span className='seeMoreIcon'><AiOutlineArrowRight/></span></Link>
                         </div>
                         
                     </div>

@@ -10,6 +10,7 @@ import {BiSearchAlt2} from 'react-icons/bi'
 
 const Header = () => {
     const {user, signOutProcess} = Usefirebase()
+
     return (
         <div className='headerContainer'>
             <nav className='navbar'>

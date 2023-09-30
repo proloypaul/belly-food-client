@@ -17,37 +17,42 @@ import ManageOrder from './Components/MyProfile/ManageOrder/ManageOrder';
 import EditProfile from './Components/MyProfile/EditProfile/EditProfile';
 import ProfileOverView from './Components/MyProfile/ProfileOverView/ProfileOverView';
 import Review from './Components/MyProfile/UserReview/Review';
+import { Provider } from 'react-redux';
+import { store } from './redux/app/store';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Header></Header>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/signIn' element={<SignIn/>}/>
-          <Route path='/signUp' element={<SignUp/>}/>
-          <Route path='/foodDetails/:id' element={<FoodDetails/>}/>
-          <Route path='/allFood' element={<AllFood/>}/>
-          <Route path='/carts' element={<Carts/>}/>
-          <Route path='/' element={<Home/>}>
-            <Route path='breakfast' element={<Breakfast/>}/>
-            <Route path='lunch' element={<Lunch/>}/>
-            <Route path='dinner' element={<Dinner/>}/>
-          </Route>
-          {/* <Route path='/myProfile' element={<MyProfile/>}/> */}
-          {/* Dashboard routes */}
-          <Route path='myProfile/' element={<MyProfile/>}>
-            <Route path='myOrder' element={<MyOrder/>}/>
-            <Route path='manageOrder' element={<ManageOrder/>}/>
-            <Route path='editProfile' element={<EditProfile/>}/>
-            <Route path='profileOverView' element={<ProfileOverView/>}/>
-            <Route path='review' element={<Review/>}/>
-          </Route>
-        </Routes>
-        <Footer></Footer>
-      </BrowserRouter>
-    </div>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Header></Header>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/signIn' element={<SignIn/>}/>
+            <Route path='/signUp' element={<SignUp/>}/>
+            <Route path='/foodDetails/:id' element={<FoodDetails/>}/>
+            <Route path='/allFood' element={<AllFood/>}/>
+            <Route path='/carts' element={<Carts/>}/>
+            <Route path='/' element={<Home/>}>
+              <Route path='breakfast' element={<Breakfast/>}/>
+              <Route path='lunch' element={<Lunch/>}/>
+              <Route path='dinner' element={<Dinner/>}/>
+            </Route>
+            {/* <Route path='/myProfile' element={<MyProfile/>}/> */}
+            {/* Dashboard routes */}
+            <Route path='myProfile/' element={<MyProfile/>}>
+              <Route path='myOrder' element={<MyOrder/>}/>
+              <Route path='manageOrder' element={<ManageOrder/>}/>
+              <Route path='editProfile' element={<EditProfile/>}/>
+              <Route path='profileOverView' element={<ProfileOverView/>}/>
+              <Route path='review' element={<Review/>}/>
+            </Route>
+          </Routes>
+          <Footer></Footer>
+        </BrowserRouter>
+
+      </Provider>
+          </div>
   );
 }
 
