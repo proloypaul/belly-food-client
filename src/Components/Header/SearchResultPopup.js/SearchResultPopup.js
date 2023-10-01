@@ -6,7 +6,6 @@ import DisplayUserReview from '../../DisplayUserReview/DisplayUserReview';
 
 const SearchResultPopup = ({size, handleOpen, searchData}) => {
     
-    // console.log("serach data", typeof(searchData))
     return (
         <div>
              <Dialog
@@ -42,19 +41,11 @@ const SearchResultPopup = ({size, handleOpen, searchData}) => {
                                     color="pink"
                                     onClick={() => handleOpen(null)}
                                 >
-                                    <Link to={`/foodDetails/${searchData._id}`} >Details</Link>
+                                    <Link to={`/foodDetails/${data._id}`} >Details</Link>
                                 </Button>
                                 
                             </DialogFooter>
                         </div>
-                        // <div className='flex items-center justify-around py-2'>
-                        //     <div className='w-2/5 flex items-center justify-center'><img src={data.imgOne} alt='Empty!' width="200px" height="200px"/></div>
-                        //     <div className='w-3/5 font-serif'>
-                        //         <p className='text-xl font-medium text-black'>{data.name}</p>
-                        //         <p className='py-3'>{data.description}</p>
-                        //         <p className='font-bold text-pink-500'>$. {data.price}</p>
-                        //     </div>
-                        // </div>
                     )): <div>
                         <div className='flex items-center justify-center'>
                             <div className='text-center font-serif'>
@@ -84,30 +75,6 @@ const SearchResultPopup = ({size, handleOpen, searchData}) => {
                     </div>
                         }
                 </div>
-                {/* <DialogFooter>
-                    <Button
-                        variant="text"
-                        color="pink"
-                        onClick={() => handleOpen(null)}
-                        className="mr-1"
-                    >
-                        <span>Cancel</span>
-                    </Button>
-                    {searchData?.length !== 0?<Button
-                        variant="gradient"
-                        color="pink"
-                        onClick={() => handleOpen(null)}
-                    >
-                        <Link to={`/foodDetails/${"641aeb8e5ef397e94263c8be"}`} >Details</Link>
-                    </Button>: <Button
-                        variant="gradient"
-                        color="pink"
-                        onClick={() => handleOpen(null)}
-                    >
-                        <span>Inform Us</span>
-                    </Button>}
-                    
-                </DialogFooter> */}
             </Dialog>
         </div>
     );
