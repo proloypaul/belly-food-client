@@ -9,19 +9,16 @@ import {
   handleDecrementBtn,
   handleIncrementBtn,
 } from "../../../CommonStyle/CommonCode";
+import DisplayUserReview from "../../DisplayUserReview/DisplayUserReview";
+
+
 const FoodDetails = () => {
-  // const id = useParams();
-  // console.log("food id", id);
   const { id } = useParams();
   const { user } = Usefirebase();
   const [foodDetailsData, setFoodDetailsData] = useState([]);
   const [postedCart, setPostedCart] = useState([]);
-  // const [addedToCart, setAddedToCart] = useState(false);
   let [price, setPrice] = useState(0); // this state use in commonCode file
   let [foodNumber, setFoodNumber] = useState(0); // this state use in commonCode file
-
-  // console.log("price of food", price);
-  // console.log("foodNumber of food", foodNumber);
 
   // loaded single data
   useEffect(() => {
@@ -29,7 +26,6 @@ const FoodDetails = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
         setFoodDetailsData(data);
       });
 
@@ -38,7 +34,6 @@ const FoodDetails = () => {
     fetch(urlTwo)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
         setPostedCart(data);
       });
   }, [id]);
@@ -65,7 +60,6 @@ const FoodDetails = () => {
       email: user?.email,
       date: new Date().toLocaleDateString(),
     };
-    // console.log(cartsData);
 
     const url = `https://belly-food-server.onrender.com/carts`;
     fetch(url, {
@@ -91,114 +85,118 @@ const FoodDetails = () => {
       });
   };
   return (
-    <div className="foodDetailsContainer">
-      <div className="foodDetail">
-        <p className="detailName">{foodDetailsData.name}</p>
-        <p className="detailDescription">{foodDetailsData.description}</p>
-        <div className="quantite">
-          <h3 className="detailPrice">
-            $ {price ? price : foodDetailsData.price}
-          </h3>
-          <div className="quantiteBtn">
-            <button
-              className="quantiteMaxBtn"
-              onClick={
-                () =>
-                  handleIncrementBtn(
-                    foodDetailsData,
-                    price,
-                    setPrice,
-                    foodNumber,
-                    setFoodNumber
-                  )
-                // handleIncrementBtn funciton come from commonCode funciton
-              }
-            >
-              <abbr title="Click again">+</abbr>
-            </button>
-            <h4 className="quantiteNumber">{foodNumber ? foodNumber : 1}</h4>
-            <button
-              className="quantiteMinBtn"
-              onClick={
-                () =>
-                  handleDecrementBtn(
-                    foodDetailsData,
-                    price,
-                    setPrice,
-                    foodNumber,
-                    setFoodNumber
-                  )
-                // handleDecrementBtn funciton come from commonCode funciton
-              }
-            >
-              -
-            </button>
+    <>
+      <div className="foodDetailsContainer">
+        <div className="foodDetail">
+          <p className="detailName">{foodDetailsData.name}</p>
+          <p className="detailDescription">{foodDetailsData.description}</p>
+          <div className="quantite">
+            <h3 className="detailPrice">
+              $ {price ? price : foodDetailsData.price}
+            </h3>
+            <div className="quantiteBtn">
+              <button
+                className="quantiteMaxBtn"
+                onClick={
+                  () =>
+                    handleIncrementBtn(
+                      foodDetailsData,
+                      price,
+                      setPrice,
+                      foodNumber,
+                      setFoodNumber
+                    )
+                  // handleIncrementBtn funciton come from commonCode file
+                }
+              >
+                <abbr title="Click again">+</abbr>
+              </button>
+              <h4 className="quantiteNumber">{foodNumber ? foodNumber : 1}</h4>
+              <button
+                className="quantiteMinBtn"
+                onClick={
+                  () =>
+                    handleDecrementBtn(
+                      foodDetailsData,
+                      price,
+                      setPrice,
+                      foodNumber,
+                      setFoodNumber
+                    )
+                  // handleDecrementBtn funciton come from commonCode file
+                }
+              >
+                -
+              </button>
+            </div>
+          </div>
+          {alreadyAddedToCart && user?.email ? (
+            <Link to="/carts">
+              <button className="addToCartBtnSuccess">
+                <BsCartDash />
+                Already Added
+              </button>
+            </Link>
+          ) : (
+            user?.email ?
+            <Link to="/carts">
+              <button className="addToCartBtn" onClick={handleCarts}>
+                <BsCartDash /> Add To cart
+              </button>
+            </Link> : <Link to="/signIn">
+              <button className="addToCartBtn">
+                <BsCartDash /> Add To cart
+              </button>
+            </Link>
+          )}
+          <div className="relatedImg">
+            <div className="flex">
+              <Link to="/allFood">
+                <img
+                  src={foodDetailsData.imgTwo}
+                  alt="Empty!"
+                  width="100px"
+                  height="100px"
+                />
+              </Link>
+              <Link to="/allFood">
+                <img
+                  src={foodDetailsData.imgThree}
+                  alt="Empty!"
+                  width="100px"
+                  height="100px"
+                />
+              </Link>
+              <Link to="/allFood">
+                <img
+                  src={foodDetailsData.imgFour}
+                  alt="Empty!"
+                  width="100px"
+                  height="100px"
+                />
+              </Link>
+            </div>
+            <Link to="/allFood">
+              <p className="rightIcon">
+                <AiOutlineRight />
+              </p>
+            </Link>
           </div>
         </div>
-        {alreadyAddedToCart && user?.email ? (
-          <Link to="/carts">
-            <button className="addToCartBtnSuccess">
-              <BsCartDash />
-               Already Added
-            </button>
-          </Link>
-        ) : (
-          user?.email ?
-          <Link to="/carts">
-            <button className="addToCartBtn" onClick={handleCarts}>
-              <BsCartDash /> Add To cart
-            </button>
-          </Link> : <Link to="/signIn">
-            <button className="addToCartBtn">
-              <BsCartDash /> Add To cart
-            </button>
-          </Link>
-        )}
-        {/* <Link to="/carts"><button className='addToCartBtn' onClick={handleCarts}><BsCartDash/> Add</button></Link> */}
-        {/* all related img */}
-        <div className="relatedImg">
-          <div className="flex">
-            <Link to="/allFood">
-              <img
-                src={foodDetailsData.imgTwo}
-                alt="Empty!"
-                width="100px"
-                height="100px"
-              />
-            </Link>
-            <Link to="/allFood">
-              <img
-                src={foodDetailsData.imgThree}
-                alt="Empty!"
-                width="100px"
-                height="100px"
-              />
-            </Link>
-            <Link to="/allFood">
-              <img
-                src={foodDetailsData.imgFour}
-                alt="Empty!"
-                width="100px"
-                height="100px"
-              />
-            </Link>
-          </div>
-          <Link to="/allFood">
-            <p className="rightIcon">
-              <AiOutlineRight />
-            </p>
-          </Link>
+        <div className="detailImg">
+          <img
+            src={foodDetailsData.imgOne}
+            alt="Empty!"
+            width="400px"
+            height="400px"
+          />
         </div>
       </div>
-      <div className="detailImg">
-        <img
-          src={foodDetailsData.imgOne}
-          alt="Empty!"
-          width="400px"
-          height="400px"
-        />
-      </div>
-    </div>
+
+      {/* display user reviews section */}
+      <DisplayUserReview/>
+
+    </>
   );
 };
 

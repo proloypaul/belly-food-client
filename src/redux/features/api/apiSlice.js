@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 // Define a service using a base URL and expected endpoints
+// baseUrl deployed link https://belly-food-server.onrender.com/
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://belly-food-server.onrender.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3600/' }),
   tagTypes: ["maintancePostAndGet"],
   endpoints: (builder) => ({
     postUserReview: builder.mutation({
@@ -18,7 +19,10 @@ export const apiSlice = createApi({
         query: () => `/reviews`,
         providesTags: ["maintancePostAndGet"],
     }),
+    getSearchFood: builder.query({
+      query: (name) => `/searchfoods?search=${name}`,
+    })
   }),
 })
 
-export const {useGetUserReviewQuery, usePostUserReviewMutation} = apiSlice
+export const {useGetUserReviewQuery, useGetSearchFoodQuery, usePostUserReviewMutation} = apiSlice
