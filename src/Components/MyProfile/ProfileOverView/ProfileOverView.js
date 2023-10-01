@@ -17,7 +17,7 @@ const ProfileOverView = () => {
         <div className='py-10'>
             <div style={{textAlign: "center"}}>
                 <Avatar src={user?.photoURL} alt="avatar" size="xxl" />
-                <Link to="/myProfile/editProfile" className='text-white pl-5' >Edit</Link>
+                <Link to="/myProfile/editProfile" className='text-pink-500 pl-5' >Edit</Link>
             </div>
             <div className='text-black pt-10 text-xl flex justify-around font-sans'>
                 <div className='flex'>

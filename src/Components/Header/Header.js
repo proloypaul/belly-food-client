@@ -17,11 +17,7 @@ const Header = () => {
     const [size, setSize] = React.useState(null);
     const handleOpen = (value) => setSize(value);
 
-    // const collectSearchTaxt = (event) => {
-    //     const value = event.target.value
-    //     setSearchText(value)
-    // }
-    // handle search food 
+    // collect searched food 
     const {data} = useGetSearchFoodQuery(searchText)
     
     const HandleSearchFood = () => {
@@ -38,7 +34,7 @@ const Header = () => {
                 </Link>
                 <div className='flex'>
                     <input type='text' placeholder='Search Food' className='border-2 border-sky-500 px-2 py-0 text-pink-500 font-medium rounded-lg hover:outline-offset-2 hover:outline-pink-500' onBlur={(e) => setSearchText(e.target.value)}/>
-                    <p className='text-2xl p-2 border-0 rounded-full text-white cursor-pointer' style={{background: "crimson", marginLeft: "-20px"}} onClick={() => HandleSearchFood()}><BiSearchAlt2/></p>
+                    <p className='text-2xl p-2 border-0 rounded-full text-white cursor-pointer bg-pink-500' style={{ marginLeft: "-20px"}} onClick={() => HandleSearchFood()}><BiSearchAlt2/></p>
                 </div>
                 <div className='navbarOption'>
                     <ul>
@@ -52,12 +48,6 @@ const Header = () => {
             </nav>
 
             <SearchResultPopup size={size} handleOpen={handleOpen} searchData={data}/>
-            {/* <div className='flex items-center justify-center' style={{marginTop: "-20px"}}>
-                <div className='py-10 px-10 bg-black text-white w-1/2'>
-                    <h1>Display here search content</h1>
-                </div>
-
-            </div> */}
         </div>
     );
 };
