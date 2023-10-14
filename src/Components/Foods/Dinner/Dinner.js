@@ -37,6 +37,7 @@ const Dinner = () => {
               <p className="foodName">{food.name}</p>
               <p className="foodMsg">{food.msg}</p>
               <h4 className="foodPrice">${food.price}</h4>
+              <div className="py-2 px-5 bg-pink-500 border-0 rounded-lg text-white font-serif text-center"><Link to={`/foodDetails/${food._id}`} >View</Link></div>
             </div>
           </Link>
         ))}
