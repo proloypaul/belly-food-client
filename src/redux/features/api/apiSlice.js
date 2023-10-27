@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // baseUrl deployed link https://belly-food-server.onrender.com/
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://belly-food-server.onrender.com/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3600/' }),
   tagTypes: ["maintancePostAndGet"],
   endpoints: (builder) => ({
     postUserReview: builder.mutation({
@@ -20,7 +20,7 @@ export const apiSlice = createApi({
         providesTags: ["maintancePostAndGet"],
     }),
     getSearchFood: builder.query({
-      query: (name) => `/searchfoods?search=${name}`,
+      query: (name) => `/searchfoods?searchTerm=${name}`,
     })
   }),
 })

@@ -42,7 +42,7 @@ const AllFood = () => {
           </Link>
         ))}
       </div>}
-
+      
     </div>
   );
 };

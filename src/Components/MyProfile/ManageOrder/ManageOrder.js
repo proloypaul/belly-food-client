@@ -32,11 +32,10 @@ const ManageOrder = () => {
                         </Typography>
                     </div>
                     <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
-                        <Button variant="outlined" size="sm">
+                        <Button variant="outlined" size="sm" className="text-pink-500">
                         <Link to="/allFood">view Food</Link>
                         </Button>
-                        <Button className="flex items-center gap-3" size="sm">
-                        {/* <UserPlusIcon strokeWidth={2} className="h-4 w-4" />  */}
+                        <Button className="flex items-center gap-3 text-white bg-pink-500" size="sm"> 
                         <Link to="/allFood">Add Food</Link>
                         </Button>
                     </div>
