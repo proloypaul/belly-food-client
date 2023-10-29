@@ -24,20 +24,25 @@ const DashboardNav = () => {
                                     <Typography variant="h6" style={{color: "crimson"}}>{user.displayName}</Typography>
                                 </div>
                             </Link>
-                            <ul onClick={() => setDisplayOverView(true)}>
+                            {admin === true?<ul onClick={() => setDisplayOverView(true)}>
+                            <li><Link to="/myProfile/manageAllOrder">Manage All Order</Link></li>
+                                <li><Link to="/myProfile/addFood">Add Food Item</Link></li>
+                                <li><Link to="/myProfile/manageUser">Manage User</Link></li>
+                                <li><Link to="/myProfile/manageReview">Manage Reviews</Link></li>
+                            </ul> :<ul onClick={() => setDisplayOverView(true)}>
                                 <li><Link to="/myProfile/profileOverView">Profile OverView</Link></li>
                                 <li><Link to="/myProfile/myOrder">My Order</Link></li>
                                 <li><Link to="/myProfile/manageOrder">Manage Order</Link></li>
                                 <li><Link to="/myProfile/editProfile">Edit Profile</Link></li>
                                 <li><Link to="/myProfile/review">Review</Link></li>
-                                {/* <li><Link to="/myProfile/makeAdmin">Make Admin</Link></li> */}
-                            </ul>
+                            </ul>}
+                            
                         </div>
                         <div className='col-span-3'>
                             <Outlet/>
                             {displayOverView?"": <ProfileOverView/>}
 
-                            {admin ? <div className="fixed bottom-0 right-0">
+                            {admin === true ? <div className="fixed bottom-0 right-0">
                                 <MakeAdmin/>
                             </div> : ""}
                             

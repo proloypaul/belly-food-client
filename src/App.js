@@ -19,6 +19,10 @@ import ProfileOverView from './Components/MyProfile/ProfileOverView/ProfileOverV
 import Review from './Components/MyProfile/UserReview/Review';
 import { Provider } from 'react-redux';
 import { store } from './redux/app/store';
+import ManageAllOrder from './Components/MyProfile/AdminPanel/ManageAllOrder/ManageAllOrder';
+import ManageUser from './Components/MyProfile/AdminPanel/ManageUser/ManageUser';
+import AddFood from './Components/MyProfile/AdminPanel/AddFood/AddFood';
+import ManageReview from './Components/MyProfile/AdminPanel/ManageReview/ManageReview';
 
 function App() {
   return (
@@ -46,6 +50,10 @@ function App() {
               <Route path='editProfile' element={<EditProfile/>}/>
               <Route path='profileOverView' element={<ProfileOverView/>}/>
               <Route path='review' element={<Review/>}/>
+              <Route path='manageAllOrder' element={<ManageAllOrder/>}/>
+              <Route path='manageUser' element={<ManageUser/>}/>
+              <Route path='addFood' element={<AddFood/>}/>
+              <Route path='manageReview' element={<ManageReview/>}/>
             </Route>
           </Routes>
           <Footer></Footer>

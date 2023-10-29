@@ -23,8 +23,6 @@ const FoodDetails = () => {
   let [foodNumber, setFoodNumber] = useState(0); // this state use in commonCode file
 
   const [postedCartData, {isLoading, isSuccess}] = usePostCartDataMutation()
-
-  console.log("email", user?.email)
   // loaded single data
   useEffect(() => {
     const url = `https://belly-food-server.onrender.com/foods/${id}`;

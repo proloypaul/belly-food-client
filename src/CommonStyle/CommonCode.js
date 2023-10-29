@@ -100,7 +100,6 @@ export const handleDltOrder = (id, orderInfo, setOrderInfo) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          // console.log("deleted order Data", data)
           if (data.deletedCount > 0) {
             const withOutDeletedCart = orderInfo.filter(
               (carts) => carts._id !== id
@@ -112,10 +111,37 @@ export const handleDltOrder = (id, orderInfo, setOrderInfo) => {
     }
   });
 };
+export const handleUserDlt = (id, userInfo, setUserInfo) => {
+  Swal.fire({
+    title: "Are You Sure!",
+    text: "It will be deleted also your Database history!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const url = `http://localhost:3600/users/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const withOutDeletedCart = userInfo.filter(
+              (carts) => carts._id !== id
+            );
+            setUserInfo(withOutDeletedCart);
+            Swal.fire("Deleted!", "This User has been deleted.", "success");
+          }
+        });
+    }
+  });
+};
 
 // delete an user all cart 
 export const deleteUserCarts = (email) => {
-  console.log("email display form commonCode", email)
   const url = `http://localhost:3600/dltCarts/${email}`
   fetch(url, {
     method: "DELETE",
@@ -136,10 +162,7 @@ export const handleIncrementBtn = (
   foodNumber,
   setFoodNumber
 ) => {
-  const foodAllValue = {...foodDetailsData}
   const initialPrice = foodDetailsData.price;
-  console.log("cartData", foodAllValue)
-  console.log("food number", foodNumber)
   if (0 <= price && 0 <= foodNumber) {
     price = price + initialPrice;
     setPrice(price);

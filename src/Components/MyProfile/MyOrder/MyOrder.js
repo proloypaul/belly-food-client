@@ -35,7 +35,7 @@ const MyOrder = () => {
                     <div key={info._id} className="pb-4 mb-8">
                         <div className="flex items-center gap-5">
                             {info.FoodItem.map( food => (
-                                <div>
+                                <div key={food._id}>
                                     <div className="flex items-center pr-5 gap-3 border-b-4 border-pink-500 rounded-lg px-3 py-2 drop-shadow-lg bg-pink-300">
                                         <Avatar src={food.image} alt={"Empty!"} size="sm" />
                                         <div>

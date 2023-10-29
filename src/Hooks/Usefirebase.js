@@ -78,7 +78,7 @@ const Usefirebase = () => {
     const loginWithEmailAndPassword = (email, password, navigation, location) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log("result",result)
+                // console.log("result",result)
                 const user = result.user;
                 setUser(user)
                 setError('')
