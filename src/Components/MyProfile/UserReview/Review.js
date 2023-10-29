@@ -10,8 +10,15 @@ const Review = () => {
 
     const {user} = Usefirebase()
 
-    const [postedReview, {isLoading, isSuccess}] = usePostUserReviewMutation()
+    const [postedReview, {isLoading, isSuccess, isError}] = usePostUserReviewMutation()
 
+    if(isSuccess && !isError){
+        Swal.fire(
+            '!Submited',
+            'We Are Accept Your Compliment',
+            'success'
+        )
+    }
     // collect reviews data 
     const collectReviewsData = (event) => {
         const field = event.target.name;
@@ -31,15 +38,7 @@ const Review = () => {
 
         if(userReviewsData.email === user?.email){
             postedReview(options)
-
-            if(isSuccess){
-                Swal.fire(
-                    '!Submited',
-                    'We Are Accept Your Compliment',
-                    'success'
-                )
-                e.target.reset()
-            }
+            e.target.reset()
         }else{
             Swal.fire(
                 "Your Email Is Not Valid?",

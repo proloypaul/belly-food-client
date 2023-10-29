@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { RiDeleteBinFill } from "react-icons/ri";
 import "./Carts.css";
-import Usefirebase from "../../Hooks/Usefirebase";
 import { useNavigate } from "react-router-dom";
-import { handleDltCart, handleUserCartDlt } from "../../CommonStyle/CommonCode";
+import { deleteUserCarts, handleDltCart } from "../../CommonStyle/CommonCode";
 import Swal from "sweetalert2";
+// import { useGetCartDataQuery } from "../../redux/features/api/apiSlice";
+import Usefirebase from "../../Hooks/Usefirebase";
+
+
 
 const Carts = () => {
-  const { user } = Usefirebase();
+  const {user} = Usefirebase() 
   const [cartsData, setCartsData] = useState([]);
   const [saveData, setSaveData] = useState({});
   const navigate = useNavigate()
 
+  // if(user && user?.email){
+  //   // eslint-disable-next-line react-hooks/rules-of-hooks
+  //   const {data} = useGetCartDataQuery(user?.email)
+  //   console.log("email", user.email)
+  //   console.log("email", data)
+    
+  // }
+    
+  
   //fetch carts data according to user email
   try{
     useEffect(() => {
@@ -23,6 +35,7 @@ const Carts = () => {
           setCartsData(data);
         });
     }, [user.email]);
+    
   
   }catch(error){
     console.log(error)
@@ -114,7 +127,7 @@ const Carts = () => {
           if (data.insertedId) {
             Swal.fire("!Well Done", "Order added Successfully", "success");
             // setCartsData([])
-            handleUserCartDlt(user?.email)
+            deleteUserCarts(user?.email)
             navigate("/myProfile")
           }
         })
@@ -218,9 +231,10 @@ const Carts = () => {
                     </p>
                   </div>
                   <div className="cartBtns">
-                    <button className="cartBtnOne">+</button>
+                    {/* <button className="cartBtnOne" onClick={() => handleIncrementBtn(cartsData, inCartprice, setinCartPrice, inCartfoodNumber, setinCartFoodNumber)}>+</button> */}
                     <span className="cartItem">0{cart.foodNum}</span>
-                    <button className="cartBtnOne">-</button>
+                    {/* <span className="cartItem">{inCartfoodNumber}</span> */}
+                    {/* <button className="cartBtnOne" onClick={() => handleDecrementBtn(cartsData, inCartprice, setinCartPrice, inCartfoodNumber, setinCartFoodNumber)}>-</button> */}
                     <p className="pt-5 text-center">
                       <button
                         className="cartDltBtn"

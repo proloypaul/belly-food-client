@@ -8,6 +8,7 @@ const Usefirebase = () => {
     const [user, setUser] = useState([]);
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState();
+    const [admin, setAdmin] = useState(false)
     const auth = getAuth();
     const googleAuthProvider = new GoogleAuthProvider();
 
@@ -17,7 +18,7 @@ const Usefirebase = () => {
         signInWithPopup(auth, googleAuthProvider)
             .then((result) => {
                 const user = result.user
-                console.log(user);
+                // console.log(user);
                 // setUser(user);
                 saveUserToDb(user?.displayName, user?.email, user?.photoURL, 'PUT');
                 setError("");
@@ -25,7 +26,6 @@ const Usefirebase = () => {
                 navigation(destination);
                 Swal.fire("!Google SignIn", "SignIn with Google Successfully😊", "success");
             }).catch(error => {
-                // console.log(error.message);
                 setError(error.message);
             }).finally(() => setIsLoading(false));
     }
@@ -134,8 +134,19 @@ const Usefirebase = () => {
             })
     } 
 
+    useEffect(() => {
+        const url = `http://localhost:3600/users/${user?.email}`
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                // console.log("data", data)
+                setAdmin(data.admin)
+            })
+    }, [user?.email])
+
     return{
         user,
+        admin,
         error,
         isLoading,
         signInUsingGoogle,

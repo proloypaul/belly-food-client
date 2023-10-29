@@ -7,6 +7,7 @@ const DisplayUserReview = () => {
     // collect user reviews data using redux
     const {data} = useGetUserReviewQuery()
 
+
     return (
         <div className='py-20 my-10'>
             <Carousel

@@ -10,6 +10,8 @@ import {
   handleIncrementBtn,
 } from "../../../CommonStyle/CommonCode";
 import DisplayUserReview from "../../DisplayUserReview/DisplayUserReview";
+import { usePostCartDataMutation } from "../../../redux/features/api/apiSlice";
+import { Spinner } from "@material-tailwind/react";
 
 
 const FoodDetails = () => {
@@ -20,6 +22,9 @@ const FoodDetails = () => {
   let [price, setPrice] = useState(0); // this state use in commonCode file
   let [foodNumber, setFoodNumber] = useState(0); // this state use in commonCode file
 
+  const [postedCartData, {isLoading, isSuccess}] = usePostCartDataMutation()
+
+  console.log("email", user?.email)
   // loaded single data
   useEffect(() => {
     const url = `https://belly-food-server.onrender.com/foods/${id}`;
@@ -41,7 +46,7 @@ const FoodDetails = () => {
   // if cart was add to database
   let alreadyAddedToCart = false;
   postedCart.map((cart) => {
-    if (foodDetailsData._id === cart.food_id) {
+    if (foodDetailsData._id === cart.food_id && user?.email === cart?.email) {
       alreadyAddedToCart = true;
     }
     return 0;
@@ -61,29 +66,40 @@ const FoodDetails = () => {
       date: new Date().toLocaleDateString(),
     };
 
-    const url = `https://belly-food-server.onrender.com/carts`;
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(cartsData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire("!Well Done", "cart added Successfully", "success");
-        }
-      })
-      .catch((error) => {
-        // console.log(error.message);
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: `${error.message}`,
-        });
-      });
+    const options = {
+      data: cartsData
+    }
+  
+    postedCartData(options)
+
+    // const url = `https://belly-food-server.onrender.com/carts`;
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   body: JSON.stringify(cartsData),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data.insertedId) {
+    //       Swal.fire("!Well Done", "cart added Successfully", "success");
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     // console.log(error.message);
+    //     Swal.fire({
+    //       icon: "error",
+    //       title: "Oops...",
+    //       text: `${error.message}`,
+    //     });
+    //   });
   };
+
+  if(isSuccess){
+    Swal.fire("!Well Done", "cart added Successfully", "success");
+  }
+
   return (
     <>
       <div className="foodDetailsContainer">
@@ -141,7 +157,7 @@ const FoodDetails = () => {
             user?.email ?
             <Link to="/carts">
               <button className="addToCartBtn" onClick={handleCarts}>
-                <BsCartDash /> Add To cart
+              {isLoading? `${<Spinner color="pink" />} Processing..`: <div className="flex items-center"><BsCartDash /> <span>Add To cart</span></div>}
               </button>
             </Link> : <Link to="/signIn">
               <button className="addToCartBtn">

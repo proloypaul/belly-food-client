@@ -114,16 +114,16 @@ export const handleDltOrder = (id, orderInfo, setOrderInfo) => {
 };
 
 // delete an user all cart 
-export const handleUserCartDlt = (email) => {
+export const deleteUserCarts = (email) => {
   console.log("email display form commonCode", email)
-  const url = `http://localhost:3600/carts/${email}`
+  const url = `http://localhost:3600/dltCarts/${email}`
   fetch(url, {
     method: "DELETE",
   })
     .then((res) => res.json())
     .then((data) => {
       if (data.deletedCount > 0) {
-        console.log("deleted all carts", data)
+        Swal.fire("Deleted!", "We are deleted your Previus cart Items.", "success");
       }
     });
 }
@@ -136,7 +136,10 @@ export const handleIncrementBtn = (
   foodNumber,
   setFoodNumber
 ) => {
+  const foodAllValue = {...foodDetailsData}
   const initialPrice = foodDetailsData.price;
+  console.log("cartData", foodAllValue)
+  console.log("food number", foodNumber)
   if (0 <= price && 0 <= foodNumber) {
     price = price + initialPrice;
     setPrice(price);

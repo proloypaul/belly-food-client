@@ -4,12 +4,13 @@ import ProfileOverView from '../ProfileOverView/ProfileOverView';
 import { Avatar, Typography } from '@material-tailwind/react';
 import Usefirebase from '../../../Hooks/Usefirebase';
 import './DashboardNav.css'
+import MakeAdmin from '../AdminPanel/MakeAdmin/MakeAdmin';
 // import ManageOrder from './ManageOrder/ManageOrder';
 
 
 const DashboardNav = () => {
     const [displayOverView, setDisplayOverView] = useState(false)
-    const {user} =  Usefirebase()
+    const {user, admin} =  Usefirebase()
 
     return (
         <>
@@ -35,6 +36,11 @@ const DashboardNav = () => {
                         <div className='col-span-3'>
                             <Outlet/>
                             {displayOverView?"": <ProfileOverView/>}
+
+                            {admin ? <div className="fixed bottom-0 right-0">
+                                <MakeAdmin/>
+                            </div> : ""}
+                            
                         </div>
                         
                     </nav>
