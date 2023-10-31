@@ -36,7 +36,7 @@ const ManageOrder = () => {
                         <Link to="/allFood">view Food</Link>
                         </Button>
                         <Button className="flex items-center gap-3 text-white bg-pink-500" size="sm"> 
-                        <Link to="/allFood">Add Food</Link>
+                        <Link to="/myProfile/addFood">Add Food</Link>
                         </Button>
                     </div>
                     </div>

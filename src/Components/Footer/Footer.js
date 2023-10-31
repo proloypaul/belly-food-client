@@ -8,7 +8,7 @@ const Footer = () => {
             <div className='footerTitle'>
                 <p>LET'S CONNECT WITH OUS</p>
                 <div>
-                    <input type='email' placeholder='Enter Your abc@gmail.com'/>
+                    <input type='email' placeholder='Enter Your abc@gmail.com' required/>
                     <button>SUBSCRIBES NOW</button>
                 </div>
             </div>

@@ -5,7 +5,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const apiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3600/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://belly-food-server.onrender.com/' }),
   tagTypes: ["maintancePostAndGet"],
   endpoints: (builder) => ({
     postUserReview: builder.mutation({
@@ -20,8 +20,23 @@ export const apiSlice = createApi({
         query: () => `/reviews`,
         providesTags: ["maintancePostAndGet"],
     }),
+    // search food 
     getSearchFood: builder.query({
       query: (name) => `/searchfoods?searchTerm=${name}`,
+    }),
+    // post food from add food section
+    postFoodData: builder.mutation({
+      query: ({data}) => ({
+          url: "/foods",
+          method: 'POST',
+          body: data
+      }),
+      invalidatesTags: ["maintancePostAndGet"],
+    }),
+    // get food
+    getfoodData: builder.query({
+      query: () => `/foods`,
+      providesTags: ["maintancePostAndGet"],
     }),
     // post cart data from cartCollection
     postCartData: builder.mutation({
@@ -48,4 +63,4 @@ export const apiSlice = createApi({
   }),
 })
 
-export const {useGetUserReviewQuery, useGetSearchFoodQuery, usePostUserReviewMutation, usePostCartDataMutation, useGetCartDataQuery, usePostOrderInformationMutation} = apiSlice
+export const {useGetUserReviewQuery, useGetSearchFoodQuery, usePostUserReviewMutation, usePostFoodDataMutation, useGetfoodDataQuery, usePostCartDataMutation, useGetCartDataQuery, usePostOrderInformationMutation} = apiSlice

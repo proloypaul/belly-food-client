@@ -122,7 +122,7 @@ export const handleUserDlt = (id, userInfo, setUserInfo) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      const url = `http://localhost:3600/users/${id}`;
+      const url = `https://belly-food-server.onrender.com/users/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -142,7 +142,7 @@ export const handleUserDlt = (id, userInfo, setUserInfo) => {
 
 // delete an user all cart 
 export const deleteUserCarts = (email) => {
-  const url = `http://localhost:3600/dltCarts/${email}`
+  const url = `https://belly-food-server.onrender.com/dltCarts/${email}`
   fetch(url, {
     method: "DELETE",
   })

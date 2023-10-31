@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const handleMakeAdmin = () => {
         const adminData = {email: adminEmail}
 
-        const url = "http://localhost:3600/users/admin"
+        const url = "https://belly-food-server.onrender.com/users/admin"
         fetch(url, {
             method: 'put',
             headers: {

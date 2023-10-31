@@ -135,12 +135,12 @@ const Usefirebase = () => {
     } 
 
     useEffect(() => {
-        const url = `http://localhost:3600/users/${user?.email}`
+        const url = `https://belly-food-server.onrender.com/users/${user?.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 // console.log("data", data)
-                setAdmin(data.admin)
+                setAdmin(data?.admin)
             })
     }, [user?.email])
 

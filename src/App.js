@@ -23,6 +23,7 @@ import ManageAllOrder from './Components/MyProfile/AdminPanel/ManageAllOrder/Man
 import ManageUser from './Components/MyProfile/AdminPanel/ManageUser/ManageUser';
 import AddFood from './Components/MyProfile/AdminPanel/AddFood/AddFood';
 import ManageReview from './Components/MyProfile/AdminPanel/ManageReview/ManageReview';
+import ManageFood from './Components/MyProfile/AdminPanel/ManageFood/ManageFood';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
               <Route path='manageAllOrder' element={<ManageAllOrder/>}/>
               <Route path='manageUser' element={<ManageUser/>}/>
               <Route path='addFood' element={<AddFood/>}/>
+              <Route path='mangaeFood' element={<ManageFood/>}/>
               <Route path='manageReview' element={<ManageReview/>}/>
             </Route>
           </Routes>

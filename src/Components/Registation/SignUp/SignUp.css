@@ -14,10 +14,10 @@
     justify-content: center;
     align-items: center;
 }
-.signUpContainer .fileUpload{
+.fileUpload{
     cursor: pointer;
 }
-.signUpContainer .fileUpload input[type="file"]{
+.fileUpload input[type="file"]{
     display: none;
 }
 .fileUpload .successMsg{

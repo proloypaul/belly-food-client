@@ -7,7 +7,7 @@ import { handleUserDlt } from '../../../../CommonStyle/CommonCode';
 const ManageUser = () => {
     const [userData, setUserData] = useState([])
     useEffect(() => {
-        const url = "http://localhost:3600/users"
+        const url = "https://belly-food-server.onrender.com/users"
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -16,7 +16,7 @@ const ManageUser = () => {
     })
     return (
         <div className='py-10 pl-5'>
-             <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-3 gap-4'>
                 {userData.map(user => <div className='px-3 my-5 bg-black border-0 rounded-full text-center text-pink-300'>
                     <div style={{marginTop: "-30px"}}>
                         <Avatar src={user.image} alt='Empty!' withBorder={true} color="pink"/>
@@ -29,7 +29,7 @@ const ManageUser = () => {
                         <RiDeleteBinFill/>
                     </button>
                 </div>)}
-             </div>
+            </div>
         </div>
     );
 };

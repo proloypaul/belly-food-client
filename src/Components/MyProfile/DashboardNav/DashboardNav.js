@@ -28,6 +28,7 @@ const DashboardNav = () => {
                             <li><Link to="/myProfile/manageAllOrder">Manage All Order</Link></li>
                                 <li><Link to="/myProfile/addFood">Add Food Item</Link></li>
                                 <li><Link to="/myProfile/manageUser">Manage User</Link></li>
+                                <li><Link to="/myProfile/mangaeFood">Manage food</Link></li>
                                 <li><Link to="/myProfile/manageReview">Manage Reviews</Link></li>
                             </ul> :<ul onClick={() => setDisplayOverView(true)}>
                                 <li><Link to="/myProfile/profileOverView">Profile OverView</Link></li>
