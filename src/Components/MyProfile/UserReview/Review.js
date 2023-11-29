@@ -12,6 +12,7 @@ const Review = () => {
 
     const [postedReview, {isLoading, isSuccess, isError}] = usePostUserReviewMutation()
 
+    console.log("isSuccess", isSuccess, "isError", isError)
     if(isSuccess && !isError){
         Swal.fire(
             '!Submited',

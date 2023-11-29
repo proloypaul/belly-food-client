@@ -18,7 +18,7 @@ const SearchResultPopup = ({size, handleOpen, searchData}) => {
                 {/* <DialogHeader>Its a simple dialog.</DialogHeader> */}
                 <div className='py-10 px-5'>
                     {searchData?.length !== 0?searchData?.map(data => (
-                        <div>
+                        <div key={data._id}>
                             <div className='flex items-center justify-around py-2'>
                                 <div className='w-2/5 flex items-center justify-center'><img src={data.imgOne} alt='Empty!' width="200px" height="200px"/></div>
                                 <div className='w-3/5 font-serif'>

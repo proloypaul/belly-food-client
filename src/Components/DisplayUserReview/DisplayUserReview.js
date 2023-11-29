@@ -28,7 +28,7 @@ const DisplayUserReview = () => {
                 )}
                 >
                     {data?.map(review => (
-                    <div className=' flex items-center justify-center'>
+                    <div key={review._id} className=' flex items-center justify-center'>
                         <Card color="transparent" shadow={true} className=" py-5 pl-10">
                             <CardHeader
                             color="transparent"
