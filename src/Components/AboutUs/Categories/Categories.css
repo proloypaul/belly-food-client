@@ -33,3 +33,27 @@
     font-size: 18px;
     font-family: 'Times New Roman', Times, serif;
 }
+
+
+
+@media screen and (max-width: 760px) and (min-width: 300px){
+    .categoriesContainer{
+        padding: 20px 0px;
+    }
+    .categoriestitle{
+        display: block;
+        text-align: center;
+    }
+    .categoriestitle p{
+        /* padding-right: 50px; */
+        font-size: 40px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .categoriesContent{
+        display: grid;
+        grid-template-columns: 12fr;
+        padding-top: 40px;
+    
+    }
+
+}

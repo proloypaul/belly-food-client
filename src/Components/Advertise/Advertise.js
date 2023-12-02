@@ -27,7 +27,7 @@ const advertiseData = [
 
 const Advertise = () => {
     return (
-        <div className='advertiseContainer'>
+        <div className='container advertiseContainer'>
             <p className='advertiseTitle'>Why you choose us</p>
             <p className='advertiseMsg'>Barton waited twenty always repair in within we do. An delighted offending curiosity my dashwoods at.Boy prosperous increasing surrounded.
             </p>

@@ -43,23 +43,14 @@
 }
 
 @media screen and (max-width: 760px) and (min-width: 300px){
-    .headerContainer{
-        width: 100%;
-        /* background-color: aquamarine; */
-    }
     .headerContainer .navbar{
+        display: flex;
         margin: 0px 10px;
-
+        padding: 10px
     }
-    .bannerContainer{
-        width: 100%;
-        background-repeat: no-repeat;
-        /* height: 400px; */
-        background-size: cover;
-        background-position: center;
+    .navbarOption ul li{
+        margin-left: 10px;
     }
-    .bannerContainer .bannerTitle h1{
-        font-size: 20px;
-    }
+    
 
 }
