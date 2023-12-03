@@ -9,7 +9,7 @@ const LatestFood = () => {
             <div className='categoriestitle'>
                 <p>VIEW ALL LATEST</p>
             </div>
-            <div className='sm:text-center font-serif font-medium py-10 lg:flex lg:items-center lg:justify-around'>
+            <div className='font-serif font-medium py-10 flex items-center justify-around'>
                 <div className='w-1/5'>
                     <p>The perfect complement to any meal and dessert</p>
                     <div className='flex items-center justify-between my-10 pb-2 border-b-2 border-black'>

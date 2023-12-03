@@ -44,7 +44,7 @@ const Categories = () => {
                 </div>
             </div>
 
-            <div className='lg:flex items-center justify-around py-10'>
+            <div className='flex items-center justify-around py-10'>
                 <div className='w-64 font-serif font-bold'>
                     <p>We understand that every event is unique, and we work closely with you to customize out catering menu to suit your specific needs</p>
                 </div>
